@@ -3,6 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import Menu, { MenuProps } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ArrowDown from 'components/icons/arrow-down.icon';
+import { useTranslation } from 'next-i18next';
 import MenuIcon from 'components/icons/menu.icon';
 import { COLORS } from 'config/styles-config';
 import { OpenerButton } from './category.styles';
@@ -48,9 +49,14 @@ const StyledMenu = styled((props: MenuProps) => (
   },
 }));
 
-const Categories: React.FC<{ isLabel?: boolean }> = ({ isLabel }) => {
+const Categories: React.FC<{ isLabel?: boolean; isMobile?: boolean }> = ({
+  isLabel,
+  isMobile,
+}) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const { t } = useTranslation('common');
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -69,8 +75,10 @@ const Categories: React.FC<{ isLabel?: boolean }> = ({ isLabel }) => {
         onClick={handleClick}
         startIcon={<MenuIcon color={COLORS.primary} />}
         endIcon={<ArrowDown />}
+        ismobile={isMobile}
+        align={isMobile ? 'center' : ''}
       >
-        {isLabel && "Рукнлар"}
+        {isLabel && t('ruknlar')}
       </OpenerButton>
       <StyledMenu
         id="demo-customized-menu"
@@ -82,11 +90,11 @@ const Categories: React.FC<{ isLabel?: boolean }> = ({ isLabel }) => {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose} disableRipple>
-          Ruknlar
+          {t('ruknlar')}
         </MenuItem>
       </StyledMenu>
     </div>
   );
-}
+};
 
-export default Categories
+export default Categories;

@@ -11,10 +11,16 @@ const Categories = () => {
   const [isInTheEnd, setIsInTheEnd] = useState(false);
   return (
     <Box>
-      <Typography marginBottom="2rem" variant="h4" sx={theme => ({[theme.breakpoints.down('md')]:{
-          fontSize:"24px", fontWeight: 700
-        }
-        })}>
+      <Typography
+        marginBottom="2rem"
+        variant="h4"
+        sx={(theme) => ({
+          [theme.breakpoints.down('md')]: {
+            fontSize: '24px',
+            fontWeight: 700,
+          },
+        })}
+      >
         Рукнлар
       </Typography>
       <Box position="relative">
@@ -24,42 +30,42 @@ const Categories = () => {
           onReachBeginning={() => setIsInTheEnd(false)}
           onReachEnd={() => setIsInTheEnd(true)}
           slidesPerView={6}
-          breakpoints={
-            {
-              // when window width is >= 640px
-              300: {
-                // width: 640,
-                slidesPerView: 2.5,
-              },
-              // when window width is >= 768px
-              400: {
-                // width: 768,
-                slidesPerView: 2.5,
-              },
-              500: {
-                // width: 768,
-                slidesPerView: 3,
-              },
-              600: {
-                // width: 768,
-                slidesPerView: 3.5,
-              },
-              700: {
-                // width: 768,
-                slidesPerView: 3,
-              },
-              768: {
-                // width: 768,
-                slidesPerView: 3.5,
-              },
-              920: {
-                // width: 768,
-                slidesPerView: 4,
-              },
-              1024: {
-                // width: 768,
-                slidesPerView: 5,
-              },}}
+          breakpoints={{
+            // when window width is >= 640px
+            300: {
+              // width: 640,
+              slidesPerView: 2.5,
+            },
+            // when window width is >= 768px
+            400: {
+              // width: 768,
+              slidesPerView: 2.5,
+            },
+            500: {
+              // width: 768,
+              slidesPerView: 3,
+            },
+            600: {
+              // width: 768,
+              slidesPerView: 3.5,
+            },
+            700: {
+              // width: 768,
+              slidesPerView: 3,
+            },
+            768: {
+              // width: 768,
+              slidesPerView: 3.5,
+            },
+            920: {
+              // width: 768,
+              slidesPerView: 4,
+            },
+            1024: {
+              // width: 768,
+              slidesPerView: 5,
+            },
+          }}
         >
           {categories.map((cat) => (
             <SwiperSlide key={cat.toString()}>

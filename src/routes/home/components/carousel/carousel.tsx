@@ -4,9 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import ArrowIcon from 'components/icons/arrow.icon';
 import { COLORS } from 'config/styles-config';
-import { HeroProductCard } from '../product-card';
-import { SlideNav, SwiperWrapper } from './carousel.styles';
 import { isMobile } from 'routes/home/mobile.type';
+import { HeroProductCard } from '../product-card';
+import { SlideNav } from './carousel.styles';
 
 SwiperCore.use([Navigation]);
 
@@ -36,13 +36,11 @@ const Carousel: React.FC<isMobile> = ({ isNotMobile }) => (
         // width: 768,
         slidesPerView: 2.2,
         spaceBetween: 20,
-
       },
       600: {
         // width: 768,
         slidesPerView: 2.2,
         spaceBetween: 20,
-
       },
       700: {
         // width: 768,
@@ -77,14 +75,19 @@ const Carousel: React.FC<isMobile> = ({ isNotMobile }) => (
     <SwiperSlide>
       <HeroProductCard />
     </SwiperSlide>
-    {isNotMobile && <><SlideNav className="slider-prev">
-      <ArrowIcon color={COLORS.white} />
-    </SlideNav>
-      <SlideNav className="slider-next">
-        <ArrowIcon color={COLORS.white} style={{ transform: 'rotate(180deg)' }} />
-      </SlideNav>
-    </>}
-
+    {isNotMobile && (
+      <>
+        <SlideNav className="slider-prev">
+          <ArrowIcon color={COLORS.white} />
+        </SlideNav>
+        <SlideNav className="slider-next">
+          <ArrowIcon
+            color={COLORS.white}
+            style={{ transform: 'rotate(180deg)' }}
+          />
+        </SlideNav>
+      </>
+    )}
   </Swiper>
 );
 

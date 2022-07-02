@@ -1,5 +1,6 @@
 import { COLORS } from 'config/styles-config';
 import styled from 'styled-components';
+
 interface productCardType {
   horizontal?: boolean;
   isNotMobile?: boolean;
@@ -11,8 +12,9 @@ export const ProductCardWrapper = styled.div<{ horizontal?: boolean }>`
   flex-direction: column;
   gap: 18px;
   background-color: ${({ horizontal }) => (horizontal ? COLORS.white : '')};
-  padding: ${({ horizontal }) => (horizontal ? "1.5rem" : 0)};
-  border: ${({ horizontal }) => horizontal ? `1px solid ${COLORS.borderColor}` : "none"}
+  padding: ${({ horizontal }) => (horizontal ? '1.5rem' : 0)};
+  border: ${({ horizontal }) =>
+    horizontal ? `1px solid ${COLORS.borderColor}` : 'none'};
 `;
 
 export const ProductCardImage = styled.div<productCardType>`
@@ -24,13 +26,10 @@ export const ProductCardImage = styled.div<productCardType>`
     width: 100%;
     height: 100%;
     object-fit: cover;
-  };
+  }
   @media (max-width: 768px) {
     height: 190px;
   }
-  // @media (max-width: 900px) {
-  //   height: 240px;
-  // }
 `;
 
 export const ProductCardInfo = styled.div`

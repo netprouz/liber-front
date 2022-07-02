@@ -1,15 +1,12 @@
-/* eslint-disable import/no-unresolved */
-import theme from '../config/mui-config';
+import { ThemeProvider } from 'styled-components';
+import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import theme from '../config/mui-config';
 
 import 'lib/i18next';
 import { GlobalStyle } from '../config/styles-config';
 import 'config/font.css';
-import 'swiper/css/bundle';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { ThemeProvider } from 'styled-components';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
@@ -23,4 +20,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
   </>
 );
 
-export default MyApp;
+export default appWithTranslation(MyApp);

@@ -18,7 +18,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ title }) => {
   const navigationPrevRef = useRef(null);
   const paginationRef = useRef(null);
   const navigationNextRef = useRef(null);
-  const theme = useTheme()
+  const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <Box sx={{ marginBottom: '2rem' }}>
@@ -28,10 +28,17 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ title }) => {
         direction="row"
         justifyContent="space-between"
       >
-        <Typography variant="h4" sx={theme => ({[theme.breakpoints.down('md')]:{
-          fontSize:"24px", fontWeight:700
-        }
-        })}>{title}</Typography>
+        <Typography
+          variant="h4"
+          sx={{
+            [theme.breakpoints.down('md')]: {
+              fontSize: '24px',
+              fontWeight: 700,
+            },
+          }}
+        >
+          {title}
+        </Typography>
         <Controller
           pagination={paginationRef}
           prevRef={navigationPrevRef}
@@ -63,43 +70,42 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ title }) => {
           swiper.pagination.init();
           swiper.pagination.update();
         }}
-        breakpoints={
-          {
-            // when window width is >= 640px
-            300: {
-              // width: 640,
-              slidesPerView: 2.5,
-            },
-            // when window width is >= 768px
-            400: {
-              // width: 768,
-              slidesPerView: 2.5,
-            },
-            500: {
-              // width: 768,
-              slidesPerView: 3,
-            },
-            600: {
-              // width: 768,
-              slidesPerView: 3.5,
-            },
-            700: {
-              // width: 768,
-              slidesPerView: 3,
-            },
-            768: {
-              // width: 768,
-              slidesPerView: 3.5,
-            },
-            920: {
-              // width: 768,
-              slidesPerView: 4,
-            },
-            1024: {
-              // width: 768,
-              slidesPerView: 5,
-            },
-          }}
+        breakpoints={{
+          // when window width is >= 640px
+          300: {
+            // width: 640,
+            slidesPerView: 2.5,
+          },
+          // when window width is >= 768px
+          400: {
+            // width: 768,
+            slidesPerView: 2.5,
+          },
+          500: {
+            // width: 768,
+            slidesPerView: 3,
+          },
+          600: {
+            // width: 768,
+            slidesPerView: 3.5,
+          },
+          700: {
+            // width: 768,
+            slidesPerView: 3,
+          },
+          768: {
+            // width: 768,
+            slidesPerView: 3.5,
+          },
+          920: {
+            // width: 768,
+            slidesPerView: 4,
+          },
+          1024: {
+            // width: 768,
+            slidesPerView: 5,
+          },
+        }}
       >
         {products.map((product) => (
           <SwiperSlide key={product.toString()}>
@@ -108,7 +114,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ title }) => {
         ))}
         <div className="my-custom-pagination-div" />
       </Swiper>
-    </Box >
+    </Box>
   );
 };
 

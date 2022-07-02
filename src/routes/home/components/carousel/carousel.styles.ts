@@ -30,9 +30,8 @@ export const SwiperWrapper = styled.div`
     padding: 1rem;
   }
   .swiper-container {
-    width:100%!important;
+    width: 100% !important;
     max-width: 100%;
-
   }
   .wrap {
     box-sizing: border-box;

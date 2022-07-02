@@ -5,17 +5,17 @@ import { Categories } from './components/categories';
 import { Features } from './components/features';
 import { Links } from './components/links';
 
-const Hero = dynamic(() => import('./components/hero'));
-const ProductCarousel = dynamic(() => import('./components/product-carousel'));
+const Hero: any = dynamic(() => import('./components/hero'));
+const ProductCarousel: any = dynamic(
+  () => import('./components/product-carousel')
+);
 const Home = () => {
-  const theme = useTheme()
+  const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <>
-      {isNotMobile &&
-        <Links />
-      }
+      {isNotMobile && <Links />}
       <Container maxWidth="lg">
         <Hero isNotMobile={isNotMobile} />
         <Features />
@@ -24,8 +24,7 @@ const Home = () => {
         <ProductCarousel title="Аудио китоблар" />
       </Container>
     </>
-  )
-
-}
+  );
+};
 
 export default Home;

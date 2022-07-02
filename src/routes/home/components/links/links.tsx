@@ -32,7 +32,12 @@ const Links = () => (
       <Stack direction="row" gap="20px">
         {links.map((link) => (
           <Link key={link.label} href={link.href} passHref>
-            <Typography component="a" color="primary" fontWeight={600} variant="h6">
+            <Typography
+              component="a"
+              color="primary"
+              fontWeight={600}
+              variant="h6"
+            >
               {link.label}
             </Typography>
           </Link>

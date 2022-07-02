@@ -8,36 +8,59 @@ import { Stack, Typography } from '@mui/material';
 import ArrowDown from 'components/icons/arrow-down.icon';
 import FlagUzIcon from 'components/icons/flag-uz.icon';
 import { COLORS } from 'config/styles-config';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-const options = [
-  'Show some love to MUI',
-  'Show all notification content',
-  'Hide sensitive notification content',
-  'Hide all notification content',
-];
+interface IBooks {
+  uz: {
+    title: string;
+  };
+  ru: {
+    title: string;
+  };
+  en: {
+    title: string;
+  };
+}
+
+const booksData: IBooks = {
+  uz: {
+    title: 'Sizning Kitob',
+  },
+  ru: {
+    title: 'Ваши книги',
+  },
+  en: {
+    title: 'Your books',
+  },
+};
 
 const LanguageChanger = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
   const open = Boolean(anchorEl);
+
+  const { locale, locales, asPath } = useRouter();
+  const selectedLang: string = locale || 'uz';
+  const selectedIndex: number | undefined = locales?.indexOf(locale!);
+
+  const { title } = booksData[selectedLang as keyof typeof booksData];
+
   const handleClickListItem = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleMenuItemClick = (
     event: React.MouseEvent<HTMLElement>,
     index: number
   ) => {
-    setSelectedIndex(index);
     setAnchorEl(null);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   return (
     <div>
+      {title}
       <List
         component="nav"
         aria-label="Device settings"
@@ -48,7 +71,11 @@ const LanguageChanger = () => {
           id="lock-button"
           aria-haspopup="listbox"
           aria-controls="lock-menu"
-          sx={{ backgroundColor: COLORS.lightBg, borderRadius: "14px", padding: "13.2px 16px" }}
+          sx={{
+            backgroundColor: COLORS.lightBg,
+            borderRadius: '14px',
+            padding: '13.2px 16px',
+          }}
           aria-label="when device is locked"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClickListItem}
@@ -70,16 +97,19 @@ const LanguageChanger = () => {
           role: 'listbox',
         }}
       >
-        {options.map((option, index) => (
-          <MenuItem
-            key={option}
-            disabled={index === 0}
-            selected={index === selectedIndex}
-            onClick={(event) => handleMenuItemClick(event, index)}
-          >
-            {option}
-          </MenuItem>
-        ))}
+        {locales &&
+          locales.map((option, index) => (
+            <Link key={option.toString()} href={asPath} locale={option}>
+              <MenuItem
+                key={option.toString()}
+                disabled={index === selectedIndex}
+                selected={index === selectedIndex}
+                onClick={(event) => handleMenuItemClick(event, index)}
+              >
+                {option.toUpperCase()}
+              </MenuItem>
+            </Link>
+          ))}
       </Menu>
     </div>
   );

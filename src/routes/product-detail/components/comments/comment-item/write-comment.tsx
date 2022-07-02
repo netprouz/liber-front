@@ -1,9 +1,9 @@
-import { Stack, Typography } from '@mui/material'
+import { Stack, Typography } from '@mui/material';
 import { Button } from 'components/button';
 import CustomRating from 'components/custom-rating';
 import { Input } from 'components/input';
-import React from 'react'
-import { CardWrapper } from 'routes/product-detail/layout/card-wrapper'
+import React from 'react';
+import { CardWrapper } from 'routes/product-detail/layout/card-wrapper';
 
 const WriteComment = () => (
   <CardWrapper>
@@ -13,11 +13,11 @@ const WriteComment = () => (
       </Typography>
       <CustomRating defaultValue={4} />
       <Input multiline placeholder="Изох" fullWidth />
-      <Button sx={{width: "max-content"}} variant="contained" size="large">
+      <Button sx={{ width: 'max-content' }} variant="contained" size="large">
         Юбориш
       </Button>
     </Stack>
   </CardWrapper>
 );
 
-export default WriteComment
+export default WriteComment;

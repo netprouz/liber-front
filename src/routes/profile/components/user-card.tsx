@@ -1,39 +1,67 @@
-import { Box, Typography } from '@mui/material'
-import Image from 'next/image'
-import React from 'react'
-import styled from 'styled-components'
-import AvatarPng from '../../../assets/png/avatar.png'
+import { Box, Typography } from '@mui/material';
+import styled from 'styled-components';
+import Image from 'next/image';
+import React from 'react';
+import AvatarPng from '../../../assets/png/avatar.png';
 
-const UserCard = () => {
-    return (
-        <FlexBox >
-            <Box sx={{ width: 220 }}>
-                <ImageBox>
-                    <Image alt="Avatar" src={AvatarPng} width={163} height={163} objectFit="cover" />
-                </ImageBox>
-            </Box>
-            <Box>
-                <Typography variant="h5" sx={{ fontWeight: 700, fontSize: 30, color: "#242424" }}>Суғдиёна Икромова</Typography>
-                <Typography variant="subtitle1" sx={{ marginTop: "20px", fontWeight: 500, fontSize: 20, color: "#242424" }}>+998 90 253 77 53</Typography>
-                <Typography variant="subtitle2" sx={{ marginTop: "10px", fontWeight: 500, fontSize: 20, color: "#9A9A9A" }}>ID: 0001  Баланс: 45 000 сўм</Typography>
-            </Box>
-        </FlexBox>
-    )
-}
+const FlexBox = styled.div<{ isNotMobile?: boolean }>`
+  display: flex;
+  padding: 24px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  align-items: ${(props) => (props.isNotMobile ? 'center' : 'flex-start')};
+  background: #fff;
+  margin: ${(props) => (props.isNotMobile ? 0 : '0 1rem')};
+`;
+const ImageBox = styled.div<{ isNotMobile?: boolean }>`
+  border-radius: 50%;
+  max-width: ${(props) => (props.isNotMobile ? '160px' : '100px')};
+  height: ${(props) => (props.isNotMobile ? '160px' : '100px')};
+  overflow: hidden;
+`;
 
-export default UserCard
+const UserCard: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => (
+  <FlexBox isNotMobile={isNotMobile}>
+    <Box sx={{ width: isNotMobile ? 220 : 120 }}>
+      <ImageBox isNotMobile={isNotMobile}>
+        <Image
+          alt="Avatar"
+          src={AvatarPng}
+          width={isNotMobile ? 160 : 100}
+          height={isNotMobile ? 160 : 100}
+          objectFit="cover"
+        />
+      </ImageBox>
+    </Box>
+    <Box>
+      <Typography
+        variant="h5"
+        fontWeight={700}
+        fontSize={isNotMobile ? 30 : 20}
+        color="#242424"
+      >
+        Суғдиёна Икромова
+      </Typography>
+      <Typography
+        variant="subtitle1"
+        fontWeight={500}
+        fontSize={isNotMobile ? 20 : 16}
+        color="#242424"
+        marginTop="10px"
+      >
+        +998 90 253 77 53
+      </Typography>
+      <Typography
+        variant="subtitle2"
+        fontWeight={500}
+        fontSize={isNotMobile ? 20 : 16}
+        color="#9A9A9A"
+        marginTop="10px"
+      >
+        ID: 0001 Баланс: 45 000 сўм
+      </Typography>
+    </Box>
+  </FlexBox>
+);
 
-const FlexBox = styled.div`
-display:flex;
-padding:24px;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
-border-radius: 4px;
-align-items: center;
-background:#fff;
-`
-const ImageBox = styled.div`
-border-radius:50%;
-width:163px;
-height:163px;
-overflow:hidden;
-`
+export default UserCard;

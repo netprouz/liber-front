@@ -7,7 +7,15 @@ import React from 'react';
 import { Categories } from '../categories';
 import { CustomInput, SearchFieldWrapper } from './search-field.styles';
 
-const SearchField: React.FC<{ isLabel?: boolean }> = ({ isLabel }) => {
+interface IsearchField {
+  isLabel?: boolean;
+  isNotMobile?: boolean;
+}
+
+const SearchField: React.FC<IsearchField> = ({
+  isLabel,
+  isNotMobile = true,
+}) => {
   const router = useRouter();
   const handleSearchFieldClick = () => {
     if (router.pathname === '/filter') return;
@@ -15,10 +23,12 @@ const SearchField: React.FC<{ isLabel?: boolean }> = ({ isLabel }) => {
   };
   return (
     <SearchFieldWrapper>
-      <Categories isLabel={isLabel}/>
+      {isNotMobile && <Categories isLabel={isLabel} />}
       <CustomInput
         onClick={handleSearchFieldClick}
+        isNotMobile={isNotMobile}
         placeholder="Қидириш"
+        sx={{ width: '100%' }}
         endAdornment={
           <Box
             sx={{

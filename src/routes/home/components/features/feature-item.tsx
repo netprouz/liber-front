@@ -14,12 +14,18 @@ const FeatureItem: React.FC<FeatereItemProps> = ({
   description,
   Icon,
 }) => (
-  <Stack gap="1rem" direction="row" sx={theme => ({ [theme.breakpoints.down('md')]: { margin: "10px auto" } })} >
+  <Stack
+    gap="1rem"
+    direction="row"
+    sx={(theme) => ({
+      [theme.breakpoints.down('md')]: { margin: '10px auto' },
+    })}
+  >
     <IconWrapper>
       <Icon />
     </IconWrapper>
     <Stack gap="0.5rem">
-      <Typography variant="h6"  >{title}</Typography>
+      <Typography variant="h6">{title}</Typography>
       <Typography color="#AAAAAA;" variant="caption">
         {description}
       </Typography>

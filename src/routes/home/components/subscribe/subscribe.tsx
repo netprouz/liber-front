@@ -14,11 +14,7 @@ const Subscribe = () => (
           Унда пулингизни тежаш учун ўзингиз йоқтирган рукнга обуна бўлинг
         </Typography>
       </Stack>
-      <SubscribeButton
-        startIcon={<HeartIcon />}
-        size="large"
-        fullWidth
-      >
+      <SubscribeButton startIcon={<HeartIcon />} size="large" fullWidth>
         Обуна бўлиш
       </SubscribeButton>
     </Stack>

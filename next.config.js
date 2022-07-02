@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const { i18n } = require('./next-i18next.config');
+
 const nextConfig = {
   reactStrictMode: true,
   disableStaticImages: true,
@@ -14,6 +17,7 @@ const nextConfig = {
       'api.gipermart.uz',
     ],
   },
+  i18n
 };
 
 module.exports = nextConfig;

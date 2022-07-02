@@ -1,4 +1,11 @@
-import { Container, Grid, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
+import {
+  Container,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import { Button } from 'components/button';
 import { StyledTab, StyledTabs, TabPanel } from 'components/tabs';
 import { COLORS } from 'config/styles-config';
@@ -10,7 +17,7 @@ import { SmallProductCard } from './components/small-product-card';
 
 const ProductDetailsPage = () => {
   const [value, setValue] = React.useState(0);
-  const theme = useTheme()
+  const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -21,7 +28,12 @@ const ProductDetailsPage = () => {
     <Container sx={{ padding: '1.5rem 0' }} maxWidth="lg">
       <Grid container columnSpacing={isNotMobile ? 2 : 0}>
         <BasicDetails isNotMobile={isNotMobile} />
-        <Grid item xs={9} padding={isNotMobile ? "auto" : "0 1rem"} width="100%">
+        <Grid
+          item
+          xs={9}
+          padding={isNotMobile ? 'auto' : '0 1rem'}
+          width="100%"
+        >
           <Stack>
             <StyledTabs
               value={value}
@@ -39,7 +51,7 @@ const ProductDetailsPage = () => {
             </TabPanel>
           </Stack>
         </Grid>
-        <Grid item xs={3} padding={isNotMobile ? "auto" : "0 1rem"}>
+        <Grid item xs={3} padding={isNotMobile ? 'auto' : '0 1rem'}>
           <Stack marginTop="2rem" gap="1rem">
             <Typography variant="h4" fontSize="2rem" fontWeight={700}>
               Ўхшаш китоблар
@@ -52,7 +64,7 @@ const ProductDetailsPage = () => {
               size="large"
               fullWidth
               variant="text"
-            > 
+            >
               Кўпроқ
             </Button>
           </Stack>

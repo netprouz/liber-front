@@ -1,1 +1,1 @@
-export { default  as SmallProductCard} from './small-product-card';
+export { default as SmallProductCard } from './small-product-card';

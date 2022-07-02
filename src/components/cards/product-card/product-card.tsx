@@ -21,15 +21,18 @@ interface ProductCardProps {
   isNotMobile?: boolean;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ horizontal, isNotMobile }) => (
+const ProductCard: React.FC<ProductCardProps> = ({
+  horizontal,
+  isNotMobile,
+}) => (
   <Link href={`${Paths.PRODUCT_DETAIL}asdf`} passHref>
-    { /* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
     <a>
       <ProductCardWrapper horizontal={horizontal}>
         {horizontal ? (
           <Grid container columnSpacing={2}>
-            <Grid item xs={3}>
-              <ProductCardImage  {...{ isNotMobile, horizontal }}>
+            <Grid item xs={3} width="100%">
+              <ProductCardImage {...{ isNotMobile, horizontal }}>
                 <Image
                   layout="fill"
                   src={Default}
@@ -40,16 +43,27 @@ const ProductCard: React.FC<ProductCardProps> = ({ horizontal, isNotMobile }) =>
             </Grid>
             <Grid item xs={9}>
               <ProductCardInfo>
-                <Stack direction="row" justifyContent="space-between">
+                <Stack
+                  direction={isNotMobile ? 'row' : 'column'}
+                  justifyContent="space-between"
+                >
                   <Stack>
-                    <Typography fontSize="30px" fontWeight={600}>
+                    <Typography
+                      fontSize={isNotMobile ? '30px' : '22px'}
+                      marginTop={isNotMobile ? '0' : '10px'}
+                      fontWeight={600}
+                    >
                       Даниел КИЗ
                     </Typography>
                     <Typography variant="subtitle2" color="primary">
                       SIYOSAT, FANTASTIKA
                     </Typography>
                   </Stack>
-                  <Stack gap={1}>
+                  <Stack
+                    gap={1}
+                    marginTop={isNotMobile ? '0' : '10px'}
+                    marginBottom={isNotMobile ? '0' : '10px'}
+                  >
                     <Rating
                       icon={<StarIcon color={COLORS.secondary} />}
                       emptyIcon={<StarWhiteIcon />}
@@ -78,7 +92,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ horizontal, isNotMobile }) =>
                   justifyContent="space-between"
                   alignItems="flex-end"
                 >
-                  <Stack direction="row" alignItems="center" gap="2rem">
+                  <Stack
+                    direction="row"
+                    alignItems="flex-start"
+                    gap="2rem"
+                    marginTop={2}
+                  >
                     <ProductCharacteristics
                       name="Муаллиф"
                       value="Kevin Smiley"
@@ -89,7 +108,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ horizontal, isNotMobile }) =>
                     />
                     <ProductCharacteristics name="Йил" value="2019" />
                   </Stack>
-                  <Stack gap="21px" direction="row">
+                  <Stack gap="21px" direction="row" marginTop="20px">
                     <HeadPhoneIcon />
                     <BookmarkIcon />
                   </Stack>
@@ -108,18 +127,27 @@ const ProductCard: React.FC<ProductCardProps> = ({ horizontal, isNotMobile }) =>
               />
             </ProductCardImage>
             <Stack>
-              <Typography variant="h6" fontWeight={700} sx={theme => ({
-                [theme.breakpoints.down('md')]: {
-                  fontSize: "16px"
-                }
-              })}>
+              <Typography
+                variant="h6"
+                fontWeight={700}
+                sx={(theme) => ({
+                  [theme.breakpoints.down('md')]: {
+                    fontSize: '16px',
+                  },
+                })}
+              >
                 Product title
               </Typography>
-              <Typography variant="subtitle2" color="primary" fontWeight={300} sx={theme => ({
-                [theme.breakpoints.down('md')]: {
-                  fontSize: "12px"
-                }
-              })}>
+              <Typography
+                variant="subtitle2"
+                color="primary"
+                fontWeight={300}
+                sx={(theme) => ({
+                  [theme.breakpoints.down('md')]: {
+                    fontSize: '12px',
+                  },
+                })}
+              >
                 Product Category
               </Typography>
             </Stack>

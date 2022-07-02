@@ -7,12 +7,12 @@ import PlayStore from 'assets/png/googleplay.png';
 import AppStore from 'assets/png/appstore.png';
 
 interface FooterLinks {
-    title: string;
-    links: {
-        label?: string;
-        href: string;
-        img?: StaticImageData | string
-    }[]
+  title: string;
+  links: {
+    label?: string;
+    href: string;
+    img?: StaticImageData | string;
+  }[];
 }
 
 const footerLinks: FooterLinks[] = [

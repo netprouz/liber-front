@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 interface Istyle {
   bgColor?: string;
   minHeight?: number;
@@ -19,7 +20,7 @@ export const CardTitle = styled.p`
   font-weight: 700;
   font-size: 26px;
   line-height: 32px;
-  color: #ffffff;
+  color: #fff;
   margin: 0;
   position: absolute;
   top: 32px;
@@ -33,7 +34,7 @@ export const ImageBox = styled.div<Istyle>`
 `;
 export const Flex = styled.div<Istyle>`
   display: flex;
-  flex-direction:${(props) => (props.direction ? props.direction : 'row')};
+  flex-direction: ${(props) => (props.direction ? props.direction : 'row')};
   align-items: flex-start;
   margin-top: 16px;
   justify-content: ${(props) =>
@@ -46,9 +47,9 @@ export const Label = styled.label`
   margin-bottom: 6px;
   color: #242424;
 `;
-export const CustomBox = styled.div`
+export const CustomBox = styled.div<{ isNotMobile?: boolean }>`
   padding: 16px 15px;
   background: #f5f5f5;
   min-height: 135px;
-  min-width: 368px;
+  min-width: ${(props) => (props.isNotMobile ? '368px' : '100%')};
 `;

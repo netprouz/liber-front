@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CarouselWrapper = styled.div<{ isInTheEnd: boolean }>`
   position: absolute;
   background: linear-gradient(
     ${({ isInTheEnd }) => (isInTheEnd ? '90' : '270')}deg,
-    #ffffff -3.5%,
+    #fff -3.5%,
     rgba(255, 255, 255, 0) 100%
   );
   width: 100%;
@@ -13,9 +13,12 @@ export const CarouselWrapper = styled.div<{ isInTheEnd: boolean }>`
   right: ${({ isInTheEnd }) => (!isInTheEnd ? 0 : 'unset')};
   left: ${({ isInTheEnd }) => (isInTheEnd ? 0 : 'unset')};
   z-index: 100;
-  width: 200px;
   @media (max-width: 768px) {
     width: 50px;
-    background: linear-gradient(    ${({ isInTheEnd }) => (isInTheEnd ? '90' : '270')}deg, #ffffff8a -3.5%, rgba(255,255,255,0) 100% );
+    background: linear-gradient(
+      ${({ isInTheEnd }) => (isInTheEnd ? '90' : '270')}deg,
+      #ffffff8a -3.5%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 `;

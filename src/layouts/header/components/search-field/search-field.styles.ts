@@ -9,14 +9,17 @@ export const SearchFieldWrapper = styled.div`
 `;
 
 export const CustomInput = styled(Input)`
-  border-radius: 0px 14px 14px 0px !important;
-  background-color: ${COLORS.inputBackground} !important;
-  width: 30rem;
+  border-radius: ${(props) =>
+    props.isNotMobile ? '0px 14px 14px 0px' : '14px'} !important;
+  background-color: ${(props) =>
+    props.isNotMobile ? COLORS.inputBackground : '#fff'} !important;
+  width: ${(props) => (props.isNotMobile ? '30rem' : '100%')};
   @media screen and (max-width: 1150px) {
     width: 100%;
   }
   &&&& > .MuiInputBase-input {
-    background-color: ${COLORS.inputBackground};
+    background-color: ${(props) =>
+      props.isNotMobile ? COLORS.inputBackground : '#fff'} !important;
   }
   &&&& > .MuiOutlinedInput-notchedOutline {
     border-color: ${COLORS.border};

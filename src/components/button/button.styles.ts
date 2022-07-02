@@ -61,10 +61,11 @@ export const StyledButton = styled(MuiButton).withConfig({
   position: relative;
   border-radius: ${(props) => (props.curved ? '1em' : '0.5em')};
   outline: none;
-  text-align: center;
+  text-align: ${(props) => (props.align ? props.align : 'center')};
   font-weight: 400;
   border-width: ${calcResponsiveSize(2)};
-
+  padding: ${(props) => (props.align ? '0!important' : 'auto')};
+  font-size: ${(props) => (props.align ? '1.2rem!important' : 'auto')};
   &:hover {
     border-width: ${calcResponsiveSize(2)};
   }

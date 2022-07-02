@@ -37,7 +37,7 @@ interface StyledTabProps {
 
 export const StyledTab = styled((props: StyledTabProps) => (
   <Tab disableRipple {...props} />
-))(({ theme,isNotMobile }) => ({
+))(({ theme, isNotMobile }) => ({
   textTransform: 'none',
   fontWeight: 700,
   fontSize: isNotMobile ? '2rem' : '1.5rem',
@@ -69,7 +69,7 @@ export const TabPanel = (props: TabPanelProps) => {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ paddingTop: "1rem" }}>{children}</Box>}
+      {value === index && <Box sx={{ paddingTop: '1rem' }}>{children}</Box>}
     </div>
   );
 };

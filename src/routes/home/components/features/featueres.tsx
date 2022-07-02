@@ -34,7 +34,7 @@ const features = [
 ];
 
 const Features = () => (
-  <Grid container sx={{margin: "3rem 0"}}>
+  <Grid container sx={{ margin: '3rem 0' }}>
     {features.map((feature) => (
       <Grid item xs={3} key={feature.title}>
         <FeatureItem {...feature} />

@@ -9,11 +9,17 @@ interface NoteProps {
   title: string;
   description?: string;
   button?: React.ReactNode;
+  isNotMobile?: boolean;
 }
 
-const Note: React.FC<NoteProps> = ({ title, description, button }) => (
+const Note: React.FC<NoteProps> = ({
+  title,
+  description,
+  button,
+  isNotMobile,
+}) => (
   <NoteContainer>
-    <Stack maxWidth="40%" gap="1.25rem">
+    <Stack maxWidth={isNotMobile ? '40%' : '100%'} gap="1.25rem">
       <Typography color="white" variant="h5" fontWeight={600}>
         {title}
       </Typography>
@@ -22,12 +28,16 @@ const Note: React.FC<NoteProps> = ({ title, description, button }) => (
       </Typography>
       {button}
     </Stack>
-    <HeroWrapper>
-      <Image height="200%" src={Hero} alt="hero" layout="fixed" />
-    </HeroWrapper>
-    <WaveWrapper>
-      <Image src={WaveElement} alt="wave" layout="fixed" />
-    </WaveWrapper>
+    {isNotMobile && (
+      <>
+        <HeroWrapper>
+          <Image height="200%" src={Hero} alt="hero" layout="fixed" />
+        </HeroWrapper>
+        <WaveWrapper>
+          <Image src={WaveElement} alt="wave" layout="fixed" />
+        </WaveWrapper>
+      </>
+    )}
   </NoteContainer>
 );
 

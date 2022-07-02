@@ -4,4 +4,6 @@ export interface ButtonProps extends MuiButtonProps {
   loading?: boolean;
   disabled?: boolean;
   curved?: boolean;
+  ismobile?: boolean;
+  align?: string;
 }

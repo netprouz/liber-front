@@ -5,29 +5,42 @@ import { TabBox } from '../tabs/styles/books.style';
 import { Title } from '../tabs/styles/tabs-title.style';
 
 interface tabsProps {
-    value?: string;
-    handleChange?: (event: React.SyntheticEvent, newValue: string) => void;
+  value?: string;
+  handleChange?: (event: React.SyntheticEvent, newValue: string) => void;
+  isNotMobile: boolean;
 }
-const BookTabs: React.FC<tabsProps> = ({ value, handleChange }) => {
-    return (<TabBox>
-        <Title>Китобларим</Title>
-        <Tabs value={value} onChange={handleChange} textColor="primary" indicatorColor="primary" aria-label="secondary tabs example" sx={{
-            marginLeft: "80px",
-            height: "max-content",
-            '.MuiTab-root': {
-                color: "#242424",
-                fontSize: "16px",
-                fontWeight: 900,
-                textTransform: "none",
-                '&:focus': {
-                    color: '#3F51B5'
-                }
-            }
-        }}>
-            <Tab value="one" label="Аудиокитоб" />
-            <Tab value="two" label="Электрон китоб" />
-            <Tab value="three" label="Босма китоб" />
-        </Tabs>
-    </TabBox>);
-}
-export default BookTabs
+const BookTabs: React.FC<tabsProps> = ({
+  value,
+  handleChange,
+  isNotMobile,
+}) => (
+  <TabBox isNotMobile={isNotMobile}>
+    <Title isNotMobile={isNotMobile}>Китобларим</Title>
+    <Tabs
+      value={value}
+      onChange={handleChange}
+      textColor="primary"
+      indicatorColor="primary"
+      variant="scrollable"
+      aria-label="scrollable force tabs example"
+      sx={{
+        marginLeft: isNotMobile ? '80px' : '0',
+        height: 'max-content',
+        '.MuiTab-root': {
+          color: '#242424',
+          fontSize: '16px',
+          fontWeight: 900,
+          textTransform: 'none',
+          '&:focus': {
+            color: '#3F51B5',
+          },
+        },
+      }}
+    >
+      <Tab value="one" label="Аудиокитоб" />
+      <Tab value="two" label="Электрон китоб" />
+      <Tab value="three" label="Босма китоб" />
+    </Tabs>
+  </TabBox>
+);
+export default BookTabs;

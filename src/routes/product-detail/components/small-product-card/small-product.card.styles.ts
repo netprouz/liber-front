@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SmallProductCardImage = styled.div`
   border-radius: 14px;
   height: 170px;
-  width:120px;
+  width: 120px;
   position: relative;
   overflow: hidden;
   img {

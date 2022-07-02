@@ -42,15 +42,15 @@ const CommentItem: React.FC<CommentItemProps> = ({ isMy }) => (
           </Typography>
         </Stack>
       </Stack>
-    <Typography variant="subtitle1">
-      Kitobni audiosini ham tayyorlanganda zo’r ish bo’lardi, umuman olganda
-      yaxshi kitob
-    </Typography>
-    {isMy && (
-      <Button variant="contained" size="large">
-        Ўзгартириш
-      </Button>
-    )}
+      <Typography variant="subtitle1">
+        Kitobni audiosini ham tayyorlanganda zo’r ish bo’lardi, umuman olganda
+        yaxshi kitob
+      </Typography>
+      {isMy && (
+        <Button variant="contained" size="large">
+          Ўзгартириш
+        </Button>
+      )}
     </Stack>
   </CardWrapper>
 );
