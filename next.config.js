@@ -12,9 +12,6 @@ const nextConfig = {
   images: {
     domains: [
       'localhost',
-      'cdn.shopify.com',
-      'staging.api.gipermart.uz',
-      'api.gipermart.uz',
     ],
   },
   i18n

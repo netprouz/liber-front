@@ -44,7 +44,6 @@ const LanguageChanger = () => {
   const selectedIndex: number | undefined = locales?.indexOf(locale!);
 
   const { title } = booksData[selectedLang as keyof typeof booksData];
-
   const handleClickListItem = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };

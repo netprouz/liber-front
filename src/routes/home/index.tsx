@@ -9,10 +9,10 @@ const Hero: any = dynamic(() => import('./components/hero'));
 const ProductCarousel: any = dynamic(
   () => import('./components/product-carousel')
 );
+
 const Home = () => {
   const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
-
   return (
     <>
       {isNotMobile && <Links />}

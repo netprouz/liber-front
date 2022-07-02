@@ -8,8 +8,6 @@ import { Header, HeaderMobile } from 'layouts/header';
 const Main: React.FC = ({ children }) => {
   const theme: any = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
-
-  console.log(isNotMobile);
   return (
     <>
       {isNotMobile ? <Header /> : <HeaderMobile />}

@@ -4,6 +4,8 @@ import React, { useRef } from 'react';
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
+import { useQuery } from 'react-query';
+import { getAllData } from 'services/get/books.api';
 import Controller from './controller';
 
 interface ProductCarouselProps {
@@ -20,6 +22,12 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ title }) => {
   const navigationNextRef = useRef(null);
   const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
+  // get Books all
+  const { data, isLoading, isSuccess, status, error } = useQuery(
+    'booklist',
+    () => getAllData('book/list')
+  );
+  console.log(error);
   return (
     <Box sx={{ marginBottom: '2rem' }}>
       <Stack
