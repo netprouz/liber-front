@@ -1,3 +1,3 @@
 export interface isMobile {
-  isNotMobile?: boolean;
+  isnotmobile?: boolean;
 }

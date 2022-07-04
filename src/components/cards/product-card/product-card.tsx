@@ -8,6 +8,7 @@ import BookmarkIcon from 'components/icons/bookmark.icon';
 import { COLORS } from 'config/styles-config';
 import StarWhiteIcon from 'components/icons/star-white.icon';
 import Link from 'next/link';
+import { get } from 'lodash';
 import { Paths } from 'config/site-paths';
 import {
   ProductCardImage,
@@ -18,12 +19,14 @@ import ProductCharacteristics from './product-characteristics';
 
 interface ProductCardProps {
   horizontal?: boolean;
-  isNotMobile?: boolean;
+  isnotmobile?: boolean;
+  product?: object;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
   horizontal,
-  isNotMobile,
+  isnotmobile,
+  product,
 }) => (
   <Link href={`${Paths.PRODUCT_DETAIL}asdf`} passHref>
     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -32,7 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         {horizontal ? (
           <Grid container columnSpacing={2}>
             <Grid item xs={3} width="100%">
-              <ProductCardImage {...{ isNotMobile, horizontal }}>
+              <ProductCardImage {...{ isnotmobile, horizontal }}>
                 <Image
                   layout="fill"
                   src={Default}
@@ -44,16 +47,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <Grid item xs={9}>
               <ProductCardInfo>
                 <Stack
-                  direction={isNotMobile ? 'row' : 'column'}
+                  direction={isnotmobile ? 'row' : 'column'}
                   justifyContent="space-between"
                 >
                   <Stack>
                     <Typography
-                      fontSize={isNotMobile ? '30px' : '22px'}
-                      marginTop={isNotMobile ? '0' : '10px'}
+                      fontSize={isnotmobile ? '30px' : '22px'}
+                      marginTop={isnotmobile ? '0' : '10px'}
                       fontWeight={600}
                     >
-                      Даниел КИЗ
+                      {get(product, 'title')}
                     </Typography>
                     <Typography variant="subtitle2" color="primary">
                       SIYOSAT, FANTASTIKA
@@ -61,8 +64,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   </Stack>
                   <Stack
                     gap={1}
-                    marginTop={isNotMobile ? '0' : '10px'}
-                    marginBottom={isNotMobile ? '0' : '10px'}
+                    marginTop={isnotmobile ? '0' : '10px'}
+                    marginBottom={isnotmobile ? '0' : '10px'}
                   >
                     <Rating
                       icon={<StarIcon color={COLORS.secondary} />}
@@ -121,9 +124,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <ProductCardImage>
               <Image
                 layout="fill"
-                src={Default}
-                alt="product_image"
-                placeholder="blur"
+                src={get(product, 'thumbnail') || Default}
+                alt={get(product, 'title')}
+                // placeholder="blur"
               />
             </ProductCardImage>
             <Stack>
@@ -136,7 +139,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   },
                 })}
               >
-                Product title
+                {get(product, 'title')}
               </Typography>
               <Typography
                 variant="subtitle2"
@@ -148,14 +151,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   },
                 })}
               >
-                Product Category
+                {get(product, 'category')}
               </Typography>
             </Stack>
             <Stack direction="row" justifyContent="space-between">
               <Stack gap="0.35rem" direction="row">
                 <StarIcon color={COLORS.secondary} />
                 <Typography color="secondary" fontSize="18px" fontWeight={700}>
-                  4.7
+                  {get(product, 'rating')}
                 </Typography>
               </Stack>
               <Stack gap="0.35rem" direction="row">

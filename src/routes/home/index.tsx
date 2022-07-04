@@ -10,18 +10,18 @@ const ProductCarousel: any = dynamic(
   () => import('./components/product-carousel')
 );
 
-const Home = () => {
+const Home: React.FC<{ response?: [] }> = ({ response }) => {
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
+  const isnotmobile: boolean = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <>
-      {isNotMobile && <Links />}
+      {isnotmobile && <Links />}
       <Container maxWidth="lg">
-        <Hero isNotMobile={isNotMobile} />
+        <Hero isnotmobile={isnotmobile} />
         <Features />
         <Categories />
-        <ProductCarousel title="Янги қўшилганлар" />
-        <ProductCarousel title="Аудио китоблар" />
+        <ProductCarousel title="Янги қўшилганлар" response={response} />
+        <ProductCarousel title="Аудио китоблар" response={response} />
       </Container>
     </>
   );

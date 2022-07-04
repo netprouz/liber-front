@@ -9,17 +9,17 @@ interface NoteProps {
   title: string;
   description?: string;
   button?: React.ReactNode;
-  isNotMobile?: boolean;
+  isnotmobile?: boolean;
 }
 
 const Note: React.FC<NoteProps> = ({
   title,
   description,
   button,
-  isNotMobile,
+  isnotmobile,
 }) => (
   <NoteContainer>
-    <Stack maxWidth={isNotMobile ? '40%' : '100%'} gap="1.25rem">
+    <Stack maxWidth={isnotmobile ? '40%' : '100%'} gap="1.25rem">
       <Typography color="white" variant="h5" fontWeight={600}>
         {title}
       </Typography>
@@ -28,7 +28,7 @@ const Note: React.FC<NoteProps> = ({
       </Typography>
       {button}
     </Stack>
-    {isNotMobile && (
+    {isnotmobile && (
       <>
         <HeroWrapper>
           <Image height="200%" src={Hero} alt="hero" layout="fixed" />

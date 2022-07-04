@@ -32,15 +32,15 @@ export const StyledTabs = styled((props: StyledTabsProps) => (
 
 interface StyledTabProps {
   label: string;
-  isNotMobile?: boolean;
+  isnotmobile?: boolean;
 }
 
 export const StyledTab = styled((props: StyledTabProps) => (
   <Tab disableRipple {...props} />
-))(({ theme, isNotMobile }) => ({
+))(({ theme, isnotmobile }) => ({
   textTransform: 'none',
   fontWeight: 700,
-  fontSize: isNotMobile ? '2rem' : '1.5rem',
+  fontSize: isnotmobile ? '2rem' : '1.5rem',
   padding: 0,
   marginRight: theme.spacing(4),
   color: COLORS.disabled,

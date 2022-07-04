@@ -7,15 +7,15 @@ import { Title } from '../tabs/styles/tabs-title.style';
 interface tabsProps {
   value?: string;
   handleChange?: (event: React.SyntheticEvent, newValue: string) => void;
-  isNotMobile: boolean;
+  isnotmobile: boolean;
 }
 const BookTabs: React.FC<tabsProps> = ({
   value,
   handleChange,
-  isNotMobile,
+  isnotmobile,
 }) => (
-  <TabBox isNotMobile={isNotMobile}>
-    <Title isNotMobile={isNotMobile}>Китобларим</Title>
+  <TabBox isnotmobile={isnotmobile}>
+    <Title isnotmobile={isnotmobile}>Китобларим</Title>
     <Tabs
       value={value}
       onChange={handleChange}
@@ -24,7 +24,7 @@ const BookTabs: React.FC<tabsProps> = ({
       variant="scrollable"
       aria-label="scrollable force tabs example"
       sx={{
-        marginLeft: isNotMobile ? '80px' : '0',
+        marginLeft: isnotmobile ? '80px' : '0',
         height: 'max-content',
         '.MuiTab-root': {
           color: '#242424',

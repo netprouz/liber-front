@@ -10,5 +10,5 @@ export type InputProps = Omit<
     helperText?: string;
     control?: Control;
     labelSize?: number;
-    isNotMobile?: boolean;
+    isnotmobile?: boolean;
   };

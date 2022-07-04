@@ -10,6 +10,7 @@ import {
 import HeartIcon from 'components/icons/heart.icon';
 import Note from 'components/note/note';
 import { ProductCard } from 'components/cards/product-card';
+import { get } from 'lodash';
 import { COLORS } from 'config/styles-config';
 import { useFilterContext } from 'context/filter';
 import React from 'react';
@@ -18,28 +19,29 @@ import Empty from 'assets/png/empty.png';
 import Image from 'next/image';
 import { FilterLayout } from './layout';
 
-const FilterPage = () => {
+const FilterPage: React.FC<{ response?: any }> = ({ response }) => {
+  const { data, isFetching, status } = response;
   const { grid_view } = useFilterContext();
   const products = [...Array(10).keys()];
 
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
+  const isnotmobile = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <Box sx={{ backgroundColor: COLORS.gray }}>
-      <Container sx={{ padding: isNotMobile ? '1.5rem 0' : '0' }} maxWidth="lg">
-        <FilterLayout isNotMobile={isNotMobile}>
+      <Container sx={{ padding: isnotmobile ? '1.5rem 0' : '0' }} maxWidth="lg">
+        <FilterLayout isnotmobile={isnotmobile}>
           <Grid
             columnSpacing={2}
             rowSpacing={2}
             container
-            paddingLeft={!isNotMobile ? '16px' : 'auto'}
+            paddingLeft={!isnotmobile ? '16px' : 'auto'}
           >
             <Grid
               item
               xs={12}
-              paddingLeft={!isNotMobile ? '0!important' : 'auto'}
-              width={!isNotMobile ? '94%' : 'auto'}
-              margin={!isNotMobile ? '0 auto' : 'auto'}
+              paddingLeft={!isnotmobile ? '0!important' : 'auto'}
+              width={!isnotmobile ? '94%' : 'auto'}
+              margin={!isnotmobile ? '0 auto' : 'auto'}
               order={2}
             >
               <Note
@@ -53,7 +55,7 @@ const FilterPage = () => {
                     Обуна бўлиш
                   </SubscribeButton>
                 }
-                isNotMobile={isNotMobile}
+                isnotmobile={isnotmobile}
               />
             </Grid>
             {products.length < 1 ? (
@@ -72,9 +74,14 @@ const FilterPage = () => {
                 </Stack>
               </Grid>
             ) : (
-              products.map((product) => (
-                <Grid key={product.toString()} item xs={grid_view ? 3 : 12}>
-                  <ProductCard horizontal={!grid_view} />
+              status === 'success' &&
+              get(data, 'results').map((product: any) => (
+                <Grid
+                  key={product.guid.toString()}
+                  item
+                  xs={grid_view ? 3 : 12}
+                >
+                  <ProductCard horizontal={!grid_view} product={product} />
                 </Grid>
               ))
             )}

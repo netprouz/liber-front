@@ -4,31 +4,31 @@ import Image from 'next/image';
 import React from 'react';
 import AvatarPng from '../../../assets/png/avatar.png';
 
-const FlexBox = styled.div<{ isNotMobile?: boolean }>`
+const FlexBox = styled.div<{ isnotmobile?: boolean }>`
   display: flex;
   padding: 24px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.06);
   border-radius: 4px;
-  align-items: ${(props) => (props.isNotMobile ? 'center' : 'flex-start')};
+  align-items: ${(props) => (props.isnotmobile ? 'center' : 'flex-start')};
   background: #fff;
-  margin: ${(props) => (props.isNotMobile ? 0 : '0 1rem')};
+  margin: ${(props) => (props.isnotmobile ? 0 : '0 1rem')};
 `;
-const ImageBox = styled.div<{ isNotMobile?: boolean }>`
+const ImageBox = styled.div<{ isnotmobile?: boolean }>`
   border-radius: 50%;
-  max-width: ${(props) => (props.isNotMobile ? '160px' : '100px')};
-  height: ${(props) => (props.isNotMobile ? '160px' : '100px')};
+  max-width: ${(props) => (props.isnotmobile ? '160px' : '100px')};
+  height: ${(props) => (props.isnotmobile ? '160px' : '100px')};
   overflow: hidden;
 `;
 
-const UserCard: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => (
-  <FlexBox isNotMobile={isNotMobile}>
-    <Box sx={{ width: isNotMobile ? 220 : 120 }}>
-      <ImageBox isNotMobile={isNotMobile}>
+const UserCard: React.FC<{ isnotmobile?: boolean }> = ({ isnotmobile }) => (
+  <FlexBox isnotmobile={isnotmobile}>
+    <Box sx={{ width: isnotmobile ? 220 : 120 }}>
+      <ImageBox isnotmobile={isnotmobile}>
         <Image
           alt="Avatar"
           src={AvatarPng}
-          width={isNotMobile ? 160 : 100}
-          height={isNotMobile ? 160 : 100}
+          width={isnotmobile ? 160 : 100}
+          height={isnotmobile ? 160 : 100}
           objectFit="cover"
         />
       </ImageBox>
@@ -37,7 +37,7 @@ const UserCard: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => (
       <Typography
         variant="h5"
         fontWeight={700}
-        fontSize={isNotMobile ? 30 : 20}
+        fontSize={isnotmobile ? 30 : 20}
         color="#242424"
       >
         Суғдиёна Икромова
@@ -45,7 +45,7 @@ const UserCard: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => (
       <Typography
         variant="subtitle1"
         fontWeight={500}
-        fontSize={isNotMobile ? 20 : 16}
+        fontSize={isnotmobile ? 20 : 16}
         color="#242424"
         marginTop="10px"
       >
@@ -54,7 +54,7 @@ const UserCard: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => (
       <Typography
         variant="subtitle2"
         fontWeight={500}
-        fontSize={isNotMobile ? 20 : 16}
+        fontSize={isnotmobile ? 20 : 16}
         color="#9A9A9A"
         marginTop="10px"
       >

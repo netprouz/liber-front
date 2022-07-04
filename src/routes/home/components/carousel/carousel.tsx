@@ -10,7 +10,7 @@ import { SlideNav } from './carousel.styles';
 
 SwiperCore.use([Navigation]);
 
-const Carousel: React.FC<isMobile> = ({ isNotMobile }) => (
+const Carousel: React.FC<isMobile> = ({ isnotmobile }) => (
   <Swiper
     spaceBetween={20}
     key="categoryCarousel"
@@ -75,7 +75,7 @@ const Carousel: React.FC<isMobile> = ({ isNotMobile }) => (
     <SwiperSlide>
       <HeroProductCard />
     </SwiperSlide>
-    {isNotMobile && (
+    {isnotmobile && (
       <>
         <SlideNav className="slider-prev">
           <ArrowIcon color={COLORS.white} />

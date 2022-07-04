@@ -10,7 +10,7 @@ export const ProductCardWrapper = styled.div`
 
 export const ProductCardImage = styled.div<{
   src?: string;
-  isNotMobile?: boolean;
+  isnotmobile?: boolean;
 }>`
   border: 2px solid #fff;
   filter: drop-shadow(0 4px 11px rgba(0, 0, 0, 0.21));
@@ -22,6 +22,6 @@ export const ProductCardImage = styled.div<{
   background-position: center;
   background-size: cover;
   max-width: 190px;
-  height: ${({ isNotMobile }) => (isNotMobile ? '267px' : '190px')};
+  height: ${({ isnotmobile }) => (isnotmobile ? '267px' : '190px')};
   width: 100%;
 `;

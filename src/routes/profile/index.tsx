@@ -11,18 +11,18 @@ import Settings from './tabs/settings';
 const UserProfile = () => {
   const [activeItemId, setActiveItemId] = useState(1);
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
+  const isnotmobile = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <Box sx={{ background: '#FBFBFB' }}>
       <Container
-        sx={{ padding: isNotMobile ? '1.5rem 0' : '1rem 0' }}
+        sx={{ padding: isnotmobile ? '1.5rem 0' : '1rem 0' }}
         maxWidth="lg"
       >
-        <UserCard isNotMobile={isNotMobile} />
-        <ProfileLayout {...{ activeItemId, setActiveItemId, isNotMobile }}>
-          {activeItemId === 1 && <Subscription isNotMobile={isNotMobile} />}
-          {activeItemId === 2 && <Wallet isNotMobile={isNotMobile} />}
-          {activeItemId === 3 && <Books isNotMobile={isNotMobile} />}
+        <UserCard isnotmobile={isnotmobile} />
+        <ProfileLayout {...{ activeItemId, setActiveItemId, isnotmobile }}>
+          {activeItemId === 1 && <Subscription isnotmobile={isnotmobile} />}
+          {activeItemId === 2 && <Wallet isnotmobile={isnotmobile} />}
+          {activeItemId === 3 && <Books isnotmobile={isnotmobile} />}
           {activeItemId === 4 && <SavedBooks />}
           {activeItemId === 5 && <Settings />}
         </ProfileLayout>

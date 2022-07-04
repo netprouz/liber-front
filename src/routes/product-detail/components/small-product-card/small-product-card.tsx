@@ -8,17 +8,17 @@ import { SmallProductCardImage } from './small-product.card.styles';
 
 interface SavedProps {
   isSavedTabs?: boolean;
-  isNotMobile?: boolean;
+  isnotmobile?: boolean;
 }
 
 const SmallProductCard: React.FC<SavedProps> = ({
   isSavedTabs,
-  isNotMobile,
+  isnotmobile,
 }) => (
   <Grid
     container
     columnSpacing={5}
-    flexWrap={isNotMobile ? 'wrap' : 'nowrap'}
+    flexWrap={isnotmobile ? 'wrap' : 'nowrap'}
     sx={{ width: isSavedTabs ? '300' : 'auto' }}
   >
     <Grid item xs={isSavedTabs ? 4 : 5}>

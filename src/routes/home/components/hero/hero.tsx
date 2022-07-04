@@ -6,32 +6,32 @@ import { SwiperWrapper } from '../carousel/carousel.styles';
 import { Subscription } from '../subscribe';
 import { HeroWrapper } from './hero.styles';
 
-const Hero: React.FC<isMobile> = ({ isNotMobile }) => (
+const Hero: React.FC<isMobile> = ({ isnotmobile }) => (
   <Grid container columnGap="1.5rem" margin="1rem 0" width="100%">
-    <Grid item lg={9} width="100%" order={!isNotMobile ? '2' : '1'}>
-      <HeroWrapper isNotMobile={isNotMobile}>
+    <Grid item lg={9} width="100%" order={!isnotmobile ? '2' : '1'}>
+      <HeroWrapper isnotmobile={isnotmobile}>
         <Stack
-          direction={!isNotMobile ? 'column' : 'row'}
+          direction={!isnotmobile ? 'column' : 'row'}
           justifyContent="space-between"
         >
           <Typography
-            width={!isNotMobile ? '100%' : '25rem'}
+            width={!isnotmobile ? '100%' : '25rem'}
             variant="h5"
             fontWeight={700}
           >
             Кўп ўқилаётганлар
           </Typography>
-          {isNotMobile ? (
+          {isnotmobile ? (
             <HeroCarousel />
           ) : (
             <SwiperWrapper>
-              <HeroCarousel isNotMobile={isNotMobile} />
+              <HeroCarousel isnotmobile={isnotmobile} />
             </SwiperWrapper>
           )}
         </Stack>
       </HeroWrapper>
     </Grid>
-    <Grid item lg={2.7} width="100%" order={!isNotMobile ? '1' : '2'}>
+    <Grid item lg={2.7} width="100%" order={!isnotmobile ? '1' : '2'}>
       <Subscription />
     </Grid>
   </Grid>

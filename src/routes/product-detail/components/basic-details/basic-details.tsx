@@ -15,9 +15,9 @@ import {
   BasicProductImage,
 } from './basic-detiails.sytles';
 
-const BasicDetails: React.FC<isMobile> = ({ isNotMobile }) => (
+const BasicDetails: React.FC<isMobile> = ({ isnotmobile }) => (
   <>
-    <Grid item xs={3} padding={isNotMobile ? 0 : '0 1rem'} width="100%">
+    <Grid item xs={3} padding={isnotmobile ? 0 : '0 1rem'} width="100%">
       <BasicProductImage>
         <Image src={Default} alt="product_image" layout="fill" />
       </BasicProductImage>
@@ -25,37 +25,37 @@ const BasicDetails: React.FC<isMobile> = ({ isNotMobile }) => (
     <Grid
       item
       xs={9}
-      paddingLeft={isNotMobile ? 0 : '0px!important'}
-      padding={isNotMobile ? 0 : '0 1rem!important'}
+      paddingLeft={isnotmobile ? 0 : '0px!important'}
+      padding={isnotmobile ? 0 : '0 1rem!important'}
     >
       <BasicDetailsWrapper>
         <Stack
           alignItems="baseline"
-          direction={isNotMobile ? 'row' : 'column'}
+          direction={isnotmobile ? 'row' : 'column'}
           justifyContent="space-between"
           width="100%"
         >
-          <Stack width={isNotMobile ? 'max-content' : '100%'}>
+          <Stack width={isnotmobile ? 'max-content' : '100%'}>
             <Typography
               fontWeight={700}
               variant="h4"
-              fontSize={isNotMobile ? '30px' : '24px'}
+              fontSize={isnotmobile ? '30px' : '24px'}
             >
               Элжернга аталган гуллар
             </Typography>
             <Typography
               variant="subtitle2"
               color="primary"
-              marginTop={isNotMobile ? '0' : '10px'}
+              marginTop={isnotmobile ? '0' : '10px'}
             >
               SIYOSAT, FANTASTIKA
             </Typography>
           </Stack>
           <Stack
-            width={isNotMobile ? 'fit-content' : '100%'}
-            gap={isNotMobile ? '3rem' : '1rem'}
-            direction={isNotMobile ? 'row' : 'column'}
-            marginTop={isNotMobile ? '0' : '10px'}
+            width={isnotmobile ? 'fit-content' : '100%'}
+            gap={isnotmobile ? '3rem' : '1rem'}
+            direction={isnotmobile ? 'row' : 'column'}
+            marginTop={isnotmobile ? '0' : '10px'}
           >
             <Stack direction="row" gap="1.5rem" justifyContent="space-between">
               <Stack direction="row" gap="1.25rem">
@@ -95,7 +95,7 @@ const BasicDetails: React.FC<isMobile> = ({ isNotMobile }) => (
       <Stack
         margin="1.5rem 0"
         gap="1rem"
-        direction={isNotMobile ? 'row' : 'column'}
+        direction={isnotmobile ? 'row' : 'column'}
       >
         <Button
           curved

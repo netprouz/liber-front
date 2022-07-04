@@ -3,31 +3,25 @@ import { ProductCard } from 'components/cards/product-card';
 import React, { useRef } from 'react';
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { get } from 'lodash';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { useQuery } from 'react-query';
-import { getAllData } from 'services/get/books.api';
 import Controller from './controller';
-
-interface ProductCarouselProps {
-  title: string;
-}
 
 SwiperCore.use([Navigation, Pagination]);
 
 const products = [...Array(10).keys()];
 
-const ProductCarousel: React.FC<ProductCarouselProps> = ({ title }) => {
+const ProductCarousel: React.FC<{ title?: string; response?: any }> = ({
+  title,
+  response,
+}) => {
+  const { data, isFetching, status } = response;
+
   const navigationPrevRef = useRef(null);
   const paginationRef = useRef(null);
   const navigationNextRef = useRef(null);
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
-  // get Books all
-  const { data, isLoading, isSuccess, status, error } = useQuery(
-    'booklist',
-    () => getAllData('book/list')
-  );
-  console.log(error);
+  const isnotmobile = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <Box sx={{ marginBottom: '2rem' }}>
       <Stack
@@ -56,10 +50,6 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ title }) => {
       <Swiper
         slidesPerView={5}
         spaceBetween={24}
-        // pagination={{
-        //   el: paginationRef.current,
-        //   clickable: true,
-        // }}
         navigation={{
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
@@ -115,11 +105,12 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ title }) => {
           },
         }}
       >
-        {products.map((product) => (
-          <SwiperSlide key={product.toString()}>
-            <ProductCard isNotMobile={isNotMobile} />
-          </SwiperSlide>
-        ))}
+        {status === 'success' &&
+          get(data, 'results').map((product: { title: string }) => (
+            <SwiperSlide key={product.title.toString()}>
+              <ProductCard isnotmobile={isnotmobile} product={product} />
+            </SwiperSlide>
+          ))}
         <div className="my-custom-pagination-div" />
       </Swiper>
     </Box>

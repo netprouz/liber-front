@@ -4,17 +4,15 @@ const { i18n } = require('./next-i18next.config');
 
 const nextConfig = {
   reactStrictMode: true,
-  disableStaticImages: true,
+  disableStaticImages: false,
   compiler: {
     styledComponents: true,
   },
   swcMinify: true,
   images: {
-    domains: [
-      'localhost',
-    ],
+    domains: ['zukko-mobile-app-file-handler.s3.amazonaws.com'],
   },
-  i18n
+  i18n,
 };
 
 module.exports = nextConfig;

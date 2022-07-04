@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 interface productCardType {
   horizontal?: boolean;
-  isNotMobile?: boolean;
+  isnotmobile?: boolean;
 }
 
 export const ProductCardWrapper = styled.div<{ horizontal?: boolean }>`

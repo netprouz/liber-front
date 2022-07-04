@@ -47,9 +47,9 @@ export const Label = styled.label`
   margin-bottom: 6px;
   color: #242424;
 `;
-export const CustomBox = styled.div<{ isNotMobile?: boolean }>`
+export const CustomBox = styled.div<{ isnotmobile?: boolean }>`
   padding: 16px 15px;
   background: #f5f5f5;
   min-height: 135px;
-  min-width: ${(props) => (props.isNotMobile ? '368px' : '100%')};
+  min-width: ${(props) => (props.isnotmobile ? '368px' : '100%')};
 `;

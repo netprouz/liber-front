@@ -6,18 +6,18 @@ interface Content {
   children?: React.ReactNode;
   activeItemId: number;
   setActiveItemId: any;
-  isNotMobile: boolean;
+  isnotmobile: boolean;
 }
 
 const ProfileLayout: React.FC<Content> = ({
   children,
   activeItemId,
   setActiveItemId,
-  isNotMobile,
+  isnotmobile,
 }) => (
   <Box
     sx={(theme) => ({
-      margin: isNotMobile ? '60px 0' : '20px 1rem',
+      margin: isnotmobile ? '60px 0' : '20px 1rem',
       display: 'flex',
       alignItems: 'flex-start',
       [theme.breakpoints.down('md')]: {

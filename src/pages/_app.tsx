@@ -2,8 +2,7 @@ import { ThemeProvider } from 'styled-components';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import type { GetStaticProps } from 'next';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import Head from 'next/head';
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import theme from '../config/mui-config';
 import 'lib/i18next';
@@ -20,13 +19,12 @@ const queryClient = new QueryClient({
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <QueryClientProvider client={queryClient}>
-    <Head>
-      <title>Liber</title>
-    </Head>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <Hydrate state={pageProps.dehydratedState}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </Hydrate>
   </QueryClientProvider>
 );
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({

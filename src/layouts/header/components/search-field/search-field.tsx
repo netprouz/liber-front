@@ -9,12 +9,12 @@ import { CustomInput, SearchFieldWrapper } from './search-field.styles';
 
 interface IsearchField {
   isLabel?: boolean;
-  isNotMobile?: boolean;
+  isnotmobile?: boolean;
 }
 
 const SearchField: React.FC<IsearchField> = ({
   isLabel,
-  isNotMobile = true,
+  isnotmobile = true,
 }) => {
   const router = useRouter();
   const handleSearchFieldClick = () => {
@@ -23,10 +23,10 @@ const SearchField: React.FC<IsearchField> = ({
   };
   return (
     <SearchFieldWrapper>
-      {isNotMobile && <Categories isLabel={isLabel} />}
+      {isnotmobile && <Categories isLabel={isLabel} />}
       <CustomInput
         onClick={handleSearchFieldClick}
-        isNotMobile={isNotMobile}
+        isnotmobile={isnotmobile}
         placeholder="Қидириш"
         sx={{ width: '100%' }}
         endAdornment={

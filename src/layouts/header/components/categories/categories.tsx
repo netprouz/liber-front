@@ -49,9 +49,9 @@ const StyledMenu = styled((props: MenuProps) => (
   },
 }));
 
-const Categories: React.FC<{ isLabel?: boolean; isMobile?: boolean }> = ({
+const Categories: React.FC<{ isLabel?: boolean; ismobile?: boolean }> = ({
   isLabel,
-  isMobile,
+  ismobile,
 }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -75,8 +75,8 @@ const Categories: React.FC<{ isLabel?: boolean; isMobile?: boolean }> = ({
         onClick={handleClick}
         startIcon={<MenuIcon color={COLORS.primary} />}
         endIcon={<ArrowDown />}
-        ismobile={isMobile}
-        align={isMobile ? 'center' : ''}
+        ismobile={ismobile}
+        align={ismobile ? 'center' : ''}
       >
         {isLabel && t('ruknlar')}
       </OpenerButton>

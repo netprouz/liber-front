@@ -121,12 +121,6 @@ const theme = createTheme({
       fontWeight: 500,
       letterSpacing: '0.10714285714rem', // 1.5px
     },
-    smallBold: {
-      fontSize: '1rem',
-      lineHeight: '1rem', // 16px
-      fontWeight: 700,
-      letterSpacing: '0.10714285714rem', // 1.5px
-    },
   },
   breakpoints: {
     values: {

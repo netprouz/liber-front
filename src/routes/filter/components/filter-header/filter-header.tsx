@@ -11,25 +11,25 @@ import Sort from './sort';
 interface FilterHeaderProps {
   categoryTitle?: string;
   setOpen: any;
-  isNotMobile?: boolean;
+  isnotmobile?: boolean;
 }
 
 const FilterHeader: React.FC<FilterHeaderProps> = ({
   categoryTitle = 'Китоблар',
   setOpen,
-  isNotMobile,
+  isnotmobile,
 }) => {
   const { grid_view, setGridView, setListView } = useFilterContext();
   return (
     <ControllerWrapper>
       <Stack
-        margin={isNotMobile ? '0.5rem 1.5rem' : '0.5rem 1rem'}
+        margin={isnotmobile ? '0.5rem 1.5rem' : '0.5rem 1rem'}
         direction="row"
         justifyContent="space-between"
         width="100%"
         alignItems="center"
       >
-        {isNotMobile && (
+        {isnotmobile && (
           <Typography variant="subtitle1" fontWeight={600}>
             {categoryTitle}
           </Typography>
@@ -37,10 +37,10 @@ const FilterHeader: React.FC<FilterHeaderProps> = ({
         <Stack
           gap="0.5rem"
           direction="row"
-          sx={{ justifyContent: isNotMobile ? 'flex-end' : 'space-between' }}
+          sx={{ justifyContent: isnotmobile ? 'flex-end' : 'space-between' }}
           width="100%"
         >
-          {!isNotMobile ? (
+          {!isnotmobile ? (
             <>
               <IconButton onClick={() => setOpen(true)}>
                 <FilterAltOutlined color="inherit" />

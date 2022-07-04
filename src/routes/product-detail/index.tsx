@@ -18,7 +18,7 @@ import { SmallProductCard } from './components/small-product-card';
 const ProductDetailsPage = () => {
   const [value, setValue] = React.useState(0);
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
+  const isnotmobile = useMediaQuery(theme.breakpoints.up('md'));
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -26,12 +26,12 @@ const ProductDetailsPage = () => {
 
   return (
     <Container sx={{ padding: '1.5rem 0' }} maxWidth="lg">
-      <Grid container columnSpacing={isNotMobile ? 2 : 0}>
-        <BasicDetails isNotMobile={isNotMobile} />
+      <Grid container columnSpacing={isnotmobile ? 2 : 0}>
+        <BasicDetails isnotmobile={isnotmobile} />
         <Grid
           item
           xs={9}
-          padding={isNotMobile ? 'auto' : '0 1rem'}
+          padding={isnotmobile ? 'auto' : '0 1rem'}
           width="100%"
         >
           <Stack>
@@ -40,8 +40,8 @@ const ProductDetailsPage = () => {
               onChange={handleChange}
               aria-label="styled tabs example"
             >
-              <StyledTab label="Маълумотлар" isNotMobile={isNotMobile} />
-              <StyledTab label="Фикрлар" isNotMobile={isNotMobile} />
+              <StyledTab label="Маълумотлар" isnotmobile={isnotmobile} />
+              <StyledTab label="Фикрлар" isnotmobile={isnotmobile} />
             </StyledTabs>
             <TabPanel value={value} index={0}>
               <CompleteDetails />
@@ -51,14 +51,14 @@ const ProductDetailsPage = () => {
             </TabPanel>
           </Stack>
         </Grid>
-        <Grid item xs={3} padding={isNotMobile ? 'auto' : '0 1rem'}>
+        <Grid item xs={3} padding={isnotmobile ? 'auto' : '0 1rem'}>
           <Stack marginTop="2rem" gap="1rem">
             <Typography variant="h4" fontSize="2rem" fontWeight={700}>
               Ўхшаш китоблар
             </Typography>
-            <SmallProductCard isNotMobile={isNotMobile} />
-            <SmallProductCard isNotMobile={isNotMobile} />
-            <SmallProductCard isNotMobile={isNotMobile} />
+            <SmallProductCard isnotmobile={isnotmobile} />
+            <SmallProductCard isnotmobile={isnotmobile} />
+            <SmallProductCard isnotmobile={isnotmobile} />
             <Button
               sx={{ backgroundColor: COLORS.lightBg }}
               size="large"

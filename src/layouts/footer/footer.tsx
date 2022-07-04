@@ -18,14 +18,14 @@ const Footer = () => (
       <Container maxWidth="lg">
         <Grid container rowGap="3rem">
           {footerLinks.map((item) => (
-            <Grid key={item.toString()} item lg={3} md={3} sm={6} xs={12}>
+            <Grid key={item.title.toString()} item lg={3} md={3} sm={6} xs={12}>
               <Stack gap="18px" width="96%">
                 <Typography variant="h6" fontWeight={700}>
                   {item.title}
                 </Typography>
                 {item.links.map((link) =>
                   link.img ? (
-                    <Link key={item.toString()} href={link.href} passHref>
+                    <Link key={link.toString()} href={link.href} passHref>
                       <Image layout="fixed" src={link.img} alt="stores" />
                     </Link>
                   ) : (
@@ -51,7 +51,7 @@ const Footer = () => (
                 Ижтимоий тармоқлар
               </Typography>
               <Stack direction="row" gap="24px">
-                {socialLins.map((link, i) => (
+                {socialLins.map((link) => (
                   <Link key={link.toString()} passHref href={link.link}>
                     <a href={link.link}>
                       <link.Icon />

@@ -21,7 +21,7 @@ import {
 } from './styles/sub.style';
 import { Title } from './styles/tabs-title.style';
 
-const Subscription: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => (
+const Subscription: React.FC<{ isnotmobile?: boolean }> = ({ isnotmobile }) => (
   <>
     <CardBox bgColor="#ff7f4d" minHeight={176}>
       <CardTitle>
@@ -30,16 +30,16 @@ const Subscription: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => (
         обуна бўлинг
       </CardTitle>
       <ImageBox topBottom="top">
-        {isNotMobile && <Image src={WavePng} alt="wave" />}
-        {isNotMobile && <Image src={GirlPng} alt="girl" />}
+        {isnotmobile && <Image src={WavePng} alt="wave" />}
+        {isnotmobile && <Image src={GirlPng} alt="girl" />}
       </ImageBox>
     </CardBox>
 
     <Paper sx={{ padding: '32px 32px 122px 32px', marginTop: '24px' }}>
       <Title>Обуна</Title>
-      <Flex direction={isNotMobile ? 'row' : 'column'}>
-        <Box sx={{ width: isNotMobile ? '50%' : '100%' }}>
-          <FormControl sx={{ minWidth: isNotMobile ? '80%' : '100%' }}>
+      <Flex direction={isnotmobile ? 'row' : 'column'}>
+        <Box sx={{ width: isnotmobile ? '50%' : '100%' }}>
+          <FormControl sx={{ minWidth: isnotmobile ? '80%' : '100%' }}>
             <Label>Обуна давом этиш вакти</Label>
             <Select
               sx={{
@@ -58,7 +58,7 @@ const Subscription: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => (
             </Select>
           </FormControl>
           <FormControl
-            sx={{ minWidth: isNotMobile ? '80%' : '100%', marginTop: '24px' }}
+            sx={{ minWidth: isnotmobile ? '80%' : '100%', marginTop: '24px' }}
           >
             <Label>Булимни танланг</Label>
             <Select
@@ -86,18 +86,27 @@ const Subscription: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => (
           </Typography>
         </Box>
         <Box>
-          <CustomBox isNotMobile={isNotMobile}>
+          <CustomBox isnotmobile={isnotmobile}>
             <Flex>
               <Typography variant="subtitle1">Бошланиш вакти</Typography>
-              <Typography variant="smallBold">12/09/2021</Typography>
+              <Typography variant="subtitle1" fontSize="1rem" fontWeight={700}>
+                12/09/2021
+              </Typography>
             </Flex>
             <Flex>
               <Typography variant="subtitle1">Якунланиш вакти</Typography>
-              <Typography variant="smallBold">12/09/2021</Typography>
+              <Typography variant="subtitle1" fontSize="1rem" fontWeight={700}>
+                12/09/2021
+              </Typography>
             </Flex>
             <Flex>
               <Typography variant="subtitle1">Обуна нархи</Typography>
-              <Typography variant="smallBold" sx={{ color: '#3F51B5' }}>
+              <Typography
+                variant="subtitle1"
+                fontSize="1rem"
+                fontWeight={700}
+                sx={{ color: '#3F51B5' }}
+              >
                 12 000 сум
               </Typography>
             </Flex>

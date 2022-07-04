@@ -8,7 +8,7 @@ import PaymePng from '../../../assets/png/payme2.png';
 import ClickPng from '../../../assets/png/click.png';
 import { Title } from './styles/tabs-title.style';
 
-const Wallet: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => {
+const Wallet: React.FC<{ isnotmobile?: boolean }> = ({ isnotmobile }) => {
   const [selectedPayment, setSelectedPayment] = useState('');
 
   return (
@@ -26,7 +26,9 @@ const Wallet: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => {
             Баланс
           </Typography>
           <Typography
-            variant="smallBold"
+            variant="subtitle1"
+            fontSize="1rem"
+            fontWeight={700}
             sx={{ color: '#FFFFFF', fontSize: '24px', fontWeight: 700 }}
           >
             45 000 сўм
@@ -34,7 +36,7 @@ const Wallet: React.FC<{ isNotMobile?: boolean }> = ({ isNotMobile }) => {
         </Box>
       </CardBox>
       {selectedPayment ? (
-        <Box sx={{ marginTop: '35px', width: isNotMobile ? '350px' : '100%' }}>
+        <Box sx={{ marginTop: '35px', width: isnotmobile ? '350px' : '100%' }}>
           <Input label="Сумма" placeholder="Сум" sx={{ width: '100%' }} />
           <br />
           <Button

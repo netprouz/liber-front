@@ -26,9 +26,9 @@ function valuetext(value: number) {
 
 const minDistance = 10;
 
-const FilterLayout: React.FC<{ isNotMobile?: boolean }> = ({
+const FilterLayout: React.FC<{ isnotmobile?: boolean }> = ({
   children,
-  isNotMobile,
+  isnotmobile,
 }) => {
   const [age, setAge] = React.useState('');
   const [open, setOpen] = React.useState(false);
@@ -63,7 +63,7 @@ const FilterLayout: React.FC<{ isNotMobile?: boolean }> = ({
 
   return (
     <Grid container columnSpacing={2}>
-      {!isNotMobile ? (
+      {!isnotmobile ? (
         <FilterDialog {...{ open, setOpen }}>
           <Grid item xs={3}>
             <Stack gap="1rem">
@@ -247,16 +247,16 @@ const FilterLayout: React.FC<{ isNotMobile?: boolean }> = ({
 
       <Grid item xs={9}>
         <Stack gap="1rem">
-          {!isNotMobile ? (
+          {!isnotmobile ? (
             <Stack padding="10px" gap="0.5rem">
-              {!isNotMobile && <SearchField isNotMobile={isNotMobile} />}
-              <FilterHeader {...{ setOpen, isNotMobile }} />
+              {!isnotmobile && <SearchField isnotmobile={isnotmobile} />}
+              <FilterHeader {...{ setOpen, isnotmobile }} />
             </Stack>
           ) : (
             <>
               {' '}
-              {!isNotMobile && <SearchField isNotMobile={isNotMobile} />}
-              <FilterHeader {...{ setOpen, isNotMobile }} />
+              {!isnotmobile && <SearchField isnotmobile={isnotmobile} />}
+              <FilterHeader {...{ setOpen, isnotmobile }} />
             </>
           )}
           {children}

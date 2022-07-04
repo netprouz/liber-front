@@ -7,13 +7,13 @@ import { Header, HeaderMobile } from 'layouts/header';
 
 const Main: React.FC = ({ children }) => {
   const theme: any = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
+  const isnotmobile = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <>
-      {isNotMobile ? <Header /> : <HeaderMobile />}
+      {isnotmobile ? <Header /> : <HeaderMobile />}
       <main>{children}</main>
       <Footer />
-      {!isNotMobile && <BottomMenu />}
+      {!isnotmobile && <BottomMenu />}
     </>
   );
 };
