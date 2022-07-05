@@ -24,6 +24,8 @@ const ProductDetailsPage = () => {
     setValue(newValue);
   };
 
+  // const { data, isLoading, isFetching, isSuccess } = useQuery('recommendation', () => getAllData("/book/recommendation/list/"))
+
   return (
     <Container sx={{ padding: '1.5rem 0' }} maxWidth="lg">
       <Grid container columnSpacing={isnotmobile ? 2 : 0}>

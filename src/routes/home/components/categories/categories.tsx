@@ -3,12 +3,20 @@ import { Box, Typography } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { CategoryCard } from 'components/cards/category-card';
 import React, { useState } from 'react';
+import { useQuery } from 'react-query';
+import { get } from 'lodash';
+import { getAllData } from 'services/api/get';
 import { CarouselWrapper } from './categories.styles';
-
-const categories = [...Array(10).keys()];
+import CategorySkeleton from './category.skeleton';
 
 const Categories = () => {
+  const fakeArray = new Array(10).fill('');
   const [isInTheEnd, setIsInTheEnd] = useState(false);
+  const { data, isLoading, isFetching, isSuccess } = useQuery(
+    'categories',
+    () => getAllData('/category/list/')
+  );
+
   return (
     <Box>
       <Typography
@@ -67,11 +75,20 @@ const Categories = () => {
             },
           }}
         >
-          {categories.map((cat) => (
-            <SwiperSlide key={cat.toString()}>
-              <CategoryCard />
-            </SwiperSlide>
-          ))}
+          {isSuccess &&
+            get(data, 'data.results', []).map(
+              (item: { title: string; thumbnail: string }) => (
+                <SwiperSlide key={get(item, 'guid').toString()}>
+                  <CategoryCard category={item} />
+                </SwiperSlide>
+              )
+            )}
+          {isFetching &&
+            fakeArray.map((item, index) => (
+              <SwiperSlide key={(item + index).toString()}>
+                <CategorySkeleton />
+              </SwiperSlide>
+            ))}
         </Swiper>
         <CarouselWrapper isInTheEnd={isInTheEnd} />
       </Box>

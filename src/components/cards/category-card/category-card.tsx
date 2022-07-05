@@ -1,12 +1,24 @@
-import { Typography } from '@mui/material';
 import React from 'react';
-import Placeholder from 'assets/png/placeholder.png';
+import { Typography } from '@mui/material';
 import Image from 'next/image';
+import Placeholder from 'assets/png/placeholder.png';
+import { get } from 'lodash';
 import { CategoryCardWrapper, CategoryTitle } from './category-card.styles';
 
-const CategoryCard = () => (
+interface ICategory {
+  category: {
+    title: string;
+    thumbnail: string;
+  };
+}
+
+const CategoryCard: React.FC<ICategory> = ({ category }) => (
   <CategoryCardWrapper>
-    <Image src={Placeholder} alt="categoryimage" layout="fill" />
+    <Image
+      src={get(category, 'thumbnail') || Placeholder}
+      alt={get(category, 'title')}
+      layout="fill"
+    />
     <CategoryTitle>
       <Typography
         fontWeight={600}
@@ -14,7 +26,7 @@ const CategoryCard = () => (
         variant="subtitle1"
         fontSize="18px"
       >
-        Жахон адабиёти
+        {get(category, 'title')}
       </Typography>
     </CategoryTitle>
   </CategoryCardWrapper>

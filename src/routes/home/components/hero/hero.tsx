@@ -15,7 +15,7 @@ const Hero: React.FC<isMobile> = ({ isnotmobile }) => (
           justifyContent="space-between"
         >
           <Typography
-            width={!isnotmobile ? '100%' : '25rem'}
+            width={!isnotmobile ? '100%' : '17rem'}
             variant="h5"
             fontWeight={700}
           >

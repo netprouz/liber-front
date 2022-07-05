@@ -6,22 +6,25 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { get } from 'lodash';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import Controller from './controller';
+import ProductCardSkeleton from './product-card.skeleton';
 
 SwiperCore.use([Navigation, Pagination]);
 
-const products = [...Array(10).keys()];
-
-const ProductCarousel: React.FC<{ title?: string; response?: any }> = ({
-  title,
-  response,
-}) => {
-  const { data, isFetching, status } = response;
-
+const ProductCarousel: React.FC<{
+  title?: string;
+  response?: any;
+  isFetching: boolean;
+  isLoading: boolean;
+  isSuccess: boolean;
+}> = ({ title, response, isFetching, isLoading, isSuccess }) => {
+  const data = get(response, 'data');
   const navigationPrevRef = useRef(null);
   const paginationRef = useRef(null);
   const navigationNextRef = useRef(null);
   const theme = useTheme();
   const isnotmobile = useMediaQuery(theme.breakpoints.up('md'));
+  const fakeArray = new Array(10).fill('');
+
   return (
     <Box sx={{ marginBottom: '2rem' }}>
       <Stack
@@ -105,10 +108,16 @@ const ProductCarousel: React.FC<{ title?: string; response?: any }> = ({
           },
         }}
       >
-        {status === 'success' &&
-          get(data, 'results').map((product: { title: string }) => (
+        {isSuccess &&
+          get(data, 'results', []).map((product: { title: string }) => (
             <SwiperSlide key={product.title.toString()}>
               <ProductCard isnotmobile={isnotmobile} product={product} />
+            </SwiperSlide>
+          ))}
+        {isFetching &&
+          fakeArray.map((item, index) => (
+            <SwiperSlide key={(item + index).toString()}>
+              <ProductCardSkeleton />
             </SwiperSlide>
           ))}
         <div className="my-custom-pagination-div" />

@@ -14,18 +14,24 @@ import { get } from 'lodash';
 import { COLORS } from 'config/styles-config';
 import { useFilterContext } from 'context/filter';
 import React from 'react';
-import { SubscribeButton } from 'routes/home/components/subscribe/subscribe.styles';
-import Empty from 'assets/png/empty.png';
 import Image from 'next/image';
+import { useQuery } from 'react-query';
+import Empty from 'assets/png/empty.png';
+import { getAllData } from 'services/api/get';
+import { SubscribeButton } from 'routes/home/components/subscribe/subscribe.styles';
 import { FilterLayout } from './layout';
 
-const FilterPage: React.FC<{ response?: any }> = ({ response }) => {
-  const { data, isFetching, status } = response;
+const FilterPage = () => {
   const { grid_view } = useFilterContext();
   const products = [...Array(10).keys()];
 
   const theme = useTheme();
   const isnotmobile = useMediaQuery(theme.breakpoints.up('md'));
+
+  const { data, isLoading, isFetching, isSuccess } = useQuery('books', () =>
+    getAllData('/book/list/')
+  );
+
   return (
     <Box sx={{ backgroundColor: COLORS.gray }}>
       <Container sx={{ padding: isnotmobile ? '1.5rem 0' : '0' }} maxWidth="lg">
@@ -74,8 +80,8 @@ const FilterPage: React.FC<{ response?: any }> = ({ response }) => {
                 </Stack>
               </Grid>
             ) : (
-              status === 'success' &&
-              get(data, 'results').map((product: any) => (
+              isSuccess &&
+              get(data, 'data.results').map((product: any) => (
                 <Grid
                   key={product.guid.toString()}
                   item

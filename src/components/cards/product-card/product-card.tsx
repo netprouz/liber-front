@@ -28,7 +28,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   isnotmobile,
   product,
 }) => (
-  <Link href={`${Paths.PRODUCT_DETAIL}asdf`} passHref>
+  <Link href={`${Paths.PRODUCT_DETAIL}/${get(product, 'guid')}`} passHref>
     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
     <a>
       <ProductCardWrapper horizontal={horizontal}>
@@ -38,9 +38,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
               <ProductCardImage {...{ isnotmobile, horizontal }}>
                 <Image
                   layout="fill"
-                  src={Default}
-                  alt="product_image"
-                  placeholder="blur"
+                  src={get(product, 'thumbnail') || Default}
+                  alt={get(product, 'title')}
+                  // placeholder="blur"
                 />
               </ProductCardImage>
             </Grid>
@@ -59,7 +59,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                       {get(product, 'title')}
                     </Typography>
                     <Typography variant="subtitle2" color="primary">
-                      SIYOSAT, FANTASTIKA
+                      {get(product, 'category')}
                     </Typography>
                   </Stack>
                   <Stack
@@ -74,7 +74,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     />
                     <Stack gap={2} alignItems="flex-end" direction="row">
                       <Typography variant="h5" fontWeight={600}>
-                        4.0
+                        {get(product, 'rating')}
                       </Typography>
                       <Typography variant="subtitle2" color={COLORS.disabled}>
                         235 Фикрлар
@@ -83,12 +83,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   </Stack>
                 </Stack>
                 <Typography variant="subtitle2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur.
+                  {get(product, 'short_description')}
                 </Typography>
                 <Stack
                   direction="row"
@@ -103,7 +98,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   >
                     <ProductCharacteristics
                       name="Муаллиф"
-                      value="Kevin Smiley"
+                      value={get(product, 'author')}
                     />
                     <ProductCharacteristics
                       name="Нашриёт"
@@ -162,8 +157,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 </Typography>
               </Stack>
               <Stack gap="0.35rem" direction="row">
-                <HeadPhoneIcon />
-                <BookmarkIcon />
+                {get(product, 'types').map(
+                  (type: { book_type: string }) =>
+                    type.book_type === 'audio' && <HeadPhoneIcon />
+                )}
+                {get(product, 'types').map(
+                  (type: { book_type: string }) =>
+                    type.book_type === 'paper' && <BookmarkIcon />
+                )}
               </Stack>
             </Stack>
           </>

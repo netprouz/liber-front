@@ -2,11 +2,6 @@ import styled from 'styled-components';
 
 export const CarouselWrapper = styled.div<{ isInTheEnd: boolean }>`
   position: absolute;
-  background: linear-gradient(
-    ${({ isInTheEnd }) => (isInTheEnd ? '90' : '270')}deg,
-    #fff -3.5%,
-    rgba(255, 255, 255, 0) 100%
-  );
   width: 100%;
   height: 100%;
   top: 0;
