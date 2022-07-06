@@ -1,57 +1,15 @@
-/* eslint-disable @next/next/no-css-tags */
-import Document, {
-  DocumentContext,
-  Head,
-  Html,
-  Main,
-  NextScript,
-} from 'next/document';
+import React from 'react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+// import theme from "../theme";
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const originalRenderPage = ctx.renderPage;
-    const sheet = new ServerStyleSheet();
-
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: (App: any) => (props) =>
-            sheet.collectStyles(<App {...props} />),
-        });
-      const initialProps = await Document.getInitialProps(ctx);
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
-      };
-    } finally {
-      sheet.seal();
-    }
-  }
-
+export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="uz">
         <Head>
-          <link
-            as="font"
-            crossOrigin="anonymous"
-            href="/font/Roboto-Light.ttf"
-            rel="stylesheet"
-            type="font/ttf"
-          />
-          <link
-            as="font"
-            crossOrigin="anonymous"
-            href="/font/font/Roboto-Medium.ttf"
-            rel="stylesheet"
-            type="font/ttf"
-          />
+          {/* PWA primary color */}
+          {/* <meta name="theme-color" content={theme.palette.primary.main} /> */}
         </Head>
         <body>
           <Main />
@@ -62,4 +20,25 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument;
+MyDocument.getInitialProps = async (ctx) => {
+  // Render app and page and get the context of the page with collected side effects.
+  const sheets = new ServerStyleSheet();
+  const originalRenderPage = ctx.renderPage;
+
+  ctx.renderPage = () =>
+    originalRenderPage({
+      enhanceApp: (App: any) => (props) =>
+        sheets.collectStyles(<App {...props} />),
+    });
+
+  const initialProps = await Document.getInitialProps(ctx);
+
+  return {
+    ...initialProps,
+    // Styles fragment is rendered after the app and page rendering finish.
+    styles: [
+      ...React.Children.toArray(initialProps.styles),
+      sheets.getStyleElement(),
+    ],
+  };
+};

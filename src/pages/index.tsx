@@ -15,7 +15,7 @@ const HomeRoute: any = dynamic(() => import('routes/home'));
 const Home: NextPage = () => (
   <Main>
     <Head>
-      <title>Liber</title>
+      <title>Home Page</title>
     </Head>
     <HomeRoute />
   </Main>

@@ -25,7 +25,7 @@ const HeaderMobile = () => {
             <Image src={Logo} alt="logo" width="165px" height={44} />
           </Link>
           <HeaderContent justify="flex-end">
-            <Categories isLabel={false} ismobile />
+            <Categories isLabel={false} ismobile={false} />
             {router.pathname !== '/filter' && (
               <Button
                 style={{ textAlign: 'right', padding: '12px 0px 8px 20px' }}

@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Main from 'layouts/main';
 import UserProfile from 'routes/profile';
+import { GetStaticPaths } from 'next';
 
 const Profile = () => (
   <Main>
@@ -11,5 +12,14 @@ const Profile = () => (
     <UserProfile />
   </Main>
 );
+
+export const getStaticPaths: GetStaticPaths = ({ locales }) => ({
+  paths: [
+    // if no `locale` is provided only the defaultLocale will be generated
+    { params: { id: '1' } },
+    { params: { id: '2' } },
+  ],
+  fallback: false,
+});
 
 export default Profile;

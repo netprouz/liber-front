@@ -75,7 +75,7 @@ const Categories: React.FC<{ isLabel?: boolean; ismobile?: boolean }> = ({
         onClick={handleClick}
         startIcon={<MenuIcon color={COLORS.primary} />}
         endIcon={<ArrowDown />}
-        ismobile={ismobile}
+        ismobile={ismobile || false}
         align={ismobile ? 'center' : ''}
       >
         {isLabel && t('ruknlar')}
