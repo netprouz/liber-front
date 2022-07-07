@@ -17,8 +17,8 @@ const Profile = () => (
 export const getStaticPaths: GetStaticPaths = () => ({
   paths: [
     // // if no `locale` is provided only the defaultLocale will be generated
-    // { params: { id: '1' } },
-    // { params: { id: '2' } },
+    { params: { id: '1' } },
+    { params: { id: '2' } },
   ],
   fallback: true,
 });

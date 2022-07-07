@@ -1,7 +1,6 @@
 import * as React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { Stack, Typography } from '@mui/material';
@@ -18,9 +17,6 @@ interface IBooks {
   ru: {
     title: string;
   };
-  en: {
-    title: string;
-  };
 }
 
 const booksData: IBooks = {
@@ -30,9 +26,6 @@ const booksData: IBooks = {
   ru: {
     title: 'Ваши книги',
   },
-  en: {
-    title: 'Your books',
-  },
 };
 
 const LanguageChanger = () => {
@@ -41,6 +34,7 @@ const LanguageChanger = () => {
 
   const { locale, locales, asPath } = useRouter();
   const selectedLang: string = locale || 'uz';
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const selectedIndex: number | undefined = locales?.indexOf(locale!);
 
   const { title } = booksData[selectedLang as keyof typeof booksData];
@@ -48,7 +42,9 @@ const LanguageChanger = () => {
     setAnchorEl(event.currentTarget);
   };
   const handleMenuItemClick = (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     event: React.MouseEvent<HTMLElement>,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     index: number
   ) => {
     setAnchorEl(null);
@@ -98,6 +94,7 @@ const LanguageChanger = () => {
       >
         {locales &&
           locales.map((option, index) => (
+            // eslint-disable-next-line @next/next/link-passhref
             <Link key={option.toString()} href={asPath} locale={option}>
               <MenuItem
                 key={option.toString()}
