@@ -13,6 +13,7 @@ const Profile = () => (
   </Main>
 );
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getStaticPaths: GetStaticPaths = ({ locales }) => ({
   paths: [
     // if no `locale` is provided only the defaultLocale will be generated

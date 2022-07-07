@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconType } from 'types/utility.types';
 
-const SettingsIcon: IconType = (props) => (
+const SettingsIcon: IconType = () => (
   <svg
     width="20"
     height="20"

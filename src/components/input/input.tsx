@@ -19,6 +19,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       type,
       ...otherProps
     },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     _ref
   ) => {
     const [showPassword, setShowPassword] = React.useState(false);

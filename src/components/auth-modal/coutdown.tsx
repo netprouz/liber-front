@@ -14,6 +14,7 @@ const initialTime = 59 * 1000; // initial time in milliseconds, defaults to 6000
 const interval = 1000; // interval to change remaining time amount, defaults to 1000
 const defaultStartNumber = '00 : ';
 const CoutDown = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [timeLeft, { start, pause, resume, reset }] = useCountDown(
     initialTime,
     interval
@@ -21,6 +22,7 @@ const CoutDown = () => {
   // start the timer during the first render
   React.useEffect(() => {
     start();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconType } from 'types/utility.types';
 
-const SubscriptionIcon: IconType = (props) => (
+const SubscriptionIcon: IconType = () => (
   <svg
     width="19"
     height="19"

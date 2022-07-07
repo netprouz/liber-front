@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 /* eslint-disable import/no-unresolved */
 import 'swiper/css/pagination';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const HomeRoute: any = dynamic(() => import('routes/home'));
 
 const Home: NextPage = () => (

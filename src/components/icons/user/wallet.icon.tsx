@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconType } from 'types/utility.types';
 
-const WalletIcon: IconType = (props) => (
+const WalletIcon: IconType = () => (
   <svg
     width="20"
     height="18"

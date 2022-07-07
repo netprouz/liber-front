@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconType } from 'types/utility.types';
 
-const BooksIcon: IconType = (props) => (
+const BooksIcon: IconType = () => (
   <svg
     width="19"
     height="19"

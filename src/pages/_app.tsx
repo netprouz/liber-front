@@ -24,7 +24,9 @@ const MyApp = ({
 }:
   | AppProps
   | {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       Component: NextComponentType<NextPageContext, any> | any;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       pageProps: any;
     }) => {
   useEffect(() => {
