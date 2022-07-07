@@ -2,7 +2,7 @@ import { ThemeProvider } from 'styled-components';
 import { appWithTranslation } from 'next-i18next';
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
-import type { GetStaticProps } from 'next';
+import type { GetStaticProps, NextComponentType, NextPageContext } from 'next';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import theme from '../config/mui-config';
@@ -18,7 +18,15 @@ const queryClient = new QueryClient({
   },
 });
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({
+  Component,
+  pageProps,
+}:
+  | AppProps
+  | {
+      Component: NextComponentType<NextPageContext, any> | any;
+      pageProps: any;
+    }) => {
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
