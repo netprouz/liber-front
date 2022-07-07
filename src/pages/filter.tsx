@@ -1,6 +1,6 @@
 import { FilterProvider } from 'context/filter';
 import Main from 'layouts/main';
-import { GetStaticProps, NextPage } from 'next';
+import { NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React from 'react';
@@ -17,10 +17,10 @@ const Filter: NextPage = () => (
   </Main>
 );
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale as string, ['common'])),
-    // Will be passed to the page component as props
-  },
-});
+// export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+//   props: {
+//     ...(await serverSideTranslations(locale as string, ['common'])),
+//     // Will be passed to the page component as props
+//   },
+// });
 export default Filter;
