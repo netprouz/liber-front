@@ -15,6 +15,7 @@ export const SEO: React.FC<SeoProps> = ({
   description,
   canonical,
   css,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   js,
   image,
 }) => (
