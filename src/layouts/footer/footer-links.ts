@@ -11,7 +11,7 @@ interface FooterLinks {
   links: {
     label?: string;
     href: string;
-    img?: StaticImageData | string;
+    img?: any;
   }[];
 }
 
