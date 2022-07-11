@@ -13,8 +13,8 @@ const nextConfig = {
   i18n: {
     locales: ['uz', 'ru'],
     defaultLocale: 'uz',
-    localePath: './src/locales',
   },
+  localePath: './src/locales',
 };
 
 module.exports = nextConfig;

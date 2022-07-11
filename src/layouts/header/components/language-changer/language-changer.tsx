@@ -55,7 +55,7 @@ const LanguageChanger = () => {
   };
   return (
     <div>
-      {title}
+      {/* {title} */}
       <List
         component="nav"
         aria-label="Device settings"

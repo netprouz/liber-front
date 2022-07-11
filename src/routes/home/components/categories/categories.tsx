@@ -42,36 +42,44 @@ const Categories = () => {
             // when window width is >= 640px
             300: {
               // width: 640,
-              slidesPerView: 2.5,
+              slidesPerView: 1.5,
+              // spaceBetween: 100
             },
             // when window width is >= 768px
             400: {
               // width: 768,
-              slidesPerView: 2.5,
+              slidesPerView: 2,
+              spaceBetween: 60,
             },
             500: {
               // width: 768,
               slidesPerView: 3,
+              spaceBetween: 60,
             },
             600: {
               // width: 768,
               slidesPerView: 3.5,
+              spaceBetween: 60,
             },
             700: {
               // width: 768,
               slidesPerView: 3,
+              spaceBetween: 60,
             },
             768: {
               // width: 768,
               slidesPerView: 3.5,
+              spaceBetween: 60,
             },
             920: {
               // width: 768,
               slidesPerView: 4,
+              spaceBetween: 60,
             },
             1024: {
               // width: 768,
               slidesPerView: 5,
+              spaceBetween: 60,
             },
           }}
         >

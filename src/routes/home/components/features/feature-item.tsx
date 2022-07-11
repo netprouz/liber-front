@@ -15,7 +15,7 @@ const FeatureItem: React.FC<FeatereItemProps> = ({
   Icon,
 }) => (
   <Stack
-    gap="1rem"
+    gap="3rem"
     direction="row"
     sx={(theme) => ({
       [theme.breakpoints.down('md')]: { margin: '10px auto' },

@@ -8,7 +8,13 @@ const ProductCardSkeleton = () => (
       variant="rectangular"
       width="240px"
       height="336px"
-      sx={{ borderRadius: '14px' }}
+      sx={(theme) => ({
+        borderRadius: '14px',
+        [theme.breakpoints.down('md')]: {
+          width: '128px!important',
+          height: '190px!important',
+        },
+      })}
     />
     <Skeleton animation="wave" sx={{ marginTop: '18px' }} height={30} />
     <Skeleton animation="wave" width="60%" />

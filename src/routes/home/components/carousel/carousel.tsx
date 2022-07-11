@@ -73,7 +73,7 @@ const Carousel: React.FC<isMobile> = ({ isnotmobile }) => {
     >
       {isSuccess &&
         get(data, 'data.results').map(
-          (item: { title: string; thumbnail: string }, guid: string) => (
+          (item: { title: string; thumbnail: string }) => (
             <SwiperSlide key={get(item, 'guid').toString()}>
               <HeroProductCard books={item} />
             </SwiperSlide>

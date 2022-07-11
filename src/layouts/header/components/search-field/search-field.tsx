@@ -23,7 +23,7 @@ const SearchField: React.FC<IsearchField> = ({
   };
   return (
     <SearchFieldWrapper>
-      {isnotmobile && <Categories isLabel={isLabel} />}
+      {isnotmobile && <Categories isLabel={isLabel} ismobile={false} />}
       <CustomInput
         onClick={handleSearchFieldClick}
         isnotmobile={isnotmobile}

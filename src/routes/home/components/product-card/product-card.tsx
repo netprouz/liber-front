@@ -11,6 +11,7 @@ const ProductCard = ({
 }) => {
   const theme = useTheme();
   const isnotmobile = useMediaQuery(theme.breakpoints.up('md'));
+
   return (
     <ProductCardWrapper>
       <ProductCardImage

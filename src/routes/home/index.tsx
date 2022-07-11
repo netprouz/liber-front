@@ -8,7 +8,9 @@ import { Categories } from './components/categories';
 import { Features } from './components/features';
 import { Links } from './components/links';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Hero: any = dynamic(() => import('./components/hero'));
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ProductCarousel: any = dynamic(
   () => import('./components/product-carousel')
 );
@@ -17,9 +19,13 @@ const Home = () => {
   const theme = useTheme();
   const isnotmobile: boolean = useMediaQuery(theme.breakpoints.up('md'));
 
+  // FETCHING //--------------------------------------------------------------
   const { data, isLoading, isFetching, isSuccess } = useQuery('books', () =>
     getAllData('/book/list/')
   );
+  // FETCHING ----------------------------------------------------------------
+
+  // GETTING AUDIO BOOKS //---------------------------------------------------
   const audioBooks = get(data, 'data.results', []).filter(
     (item: { types: [] }) =>
       item.types.map(
@@ -29,6 +35,7 @@ const Home = () => {
   const responseForAudio = {
     data: { count: audioBooks.length, results: audioBooks },
   };
+  // GETTING AUDIO BOOKS -----------------------------------------------------
 
   return (
     <>
